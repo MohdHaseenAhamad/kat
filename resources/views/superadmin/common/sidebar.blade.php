@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: auto;">
     <!-- Brand Logo -->
-    <a href="index.html" class="brand-link">
+    <a href="{{url('/superadmin')}}" class="brand-link">
         <img src="{{asset('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
@@ -16,7 +16,7 @@
                      alt="User Image">
             </div>
             <div class="info">
-                <a href="{{url('/operator/dashboard')}}" class="d-block">{{ Session::get('name') }} ( Operator )</a>
+                <a href="{{url('/superadmin')}}" class="d-block">{{ Session::get('superadmin')->name }}<br>(SuperAdmin)</a>
             </div>
         </div>
 
@@ -25,7 +25,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a href="{{url('/superadmin/department')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
@@ -39,6 +39,15 @@
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Employee
+                            <!--  <i class="fas fa-angle-left right"></i>-->
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('/logout')}}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Logout
                             <!--  <i class="fas fa-angle-left right"></i>-->
                         </p>
                     </a>

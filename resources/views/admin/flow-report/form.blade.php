@@ -1,5 +1,5 @@
-@include('common.header')
-@include('common.sidebar')
+@include('admin.common.header')
+@include('admin.common.sidebar')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -142,4 +142,4 @@
     </section>
     <!-- /.content -->
 </div>
-@include('common.footer')
+@include('admin.common.footer')

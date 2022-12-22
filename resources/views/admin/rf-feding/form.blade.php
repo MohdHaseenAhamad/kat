@@ -1,5 +1,5 @@
-@include('common.header')
-@include('common.sidebar')
+@include('admin.common.header')
+@include('admin.common.sidebar')
 <div class="content-wrapper" style="min-height: 498px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -144,7 +144,7 @@
     </section>
     <!-- /.content -->
 </div>
-@include('common.footer')
+@include('admin.common.footer')
 {{--<script>--}}
     {{--$(document).ready(function () {--}}
         {{--$("#form_submit").on('click',function () {--}}

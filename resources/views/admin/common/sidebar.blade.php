@@ -16,7 +16,7 @@
                      alt="User Image">
             </div>
             <div class="info">
-                <a href="{{url('/operator/dashboard')}}" class="d-block">{{ Session::get('name') }} ( Operator )</a>
+                <a href="{{url('/operator/dashboard')}}" class="d-block">{{ Session::get('admin')->name}} ( Operator )</a>
             </div>
         </div>
 
@@ -26,24 +26,72 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item ">
-                    <a href="{{url('/superadmin/department')}}" class="nav-link">
+                    <a href="{{url('/admin/autoclave-report')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
-                            Department
+                            Autoclave
                             <!--  <i class="fas fa-angle-left right"></i>-->
                         </p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="{{url('/superadmin/employee')}}" class="nav-link">
+                    <a href="{{url('/admin/batching')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
-                            Employee
+                            Batching
                             <!--  <i class="fas fa-angle-left right"></i>-->
                         </p>
                     </a>
                 </li>
-
+                <li class="nav-item ">
+                    <a href="{{url('/admin/cutting')}}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Cutting
+                            <!--  <i class="fas fa-angle-left right"></i>-->
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('/admin/flow')}}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Flow
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('/admin/labour-deployment')}}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Labour Deployment
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('/admin/raising')}}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Raising
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('/admin/logbook')}}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Logbook
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('/logout')}}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Logout
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

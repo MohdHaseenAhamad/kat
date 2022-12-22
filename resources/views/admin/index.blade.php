@@ -1,5 +1,5 @@
-@include('common.header')
-@include('common.sidebar')
+@include('admin.common.header')
+@include('admin.common.sidebar')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -610,4 +610,4 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-@include('common.footer')
+@include('admin.common.footer')

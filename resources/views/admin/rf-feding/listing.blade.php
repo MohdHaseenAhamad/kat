@@ -1,5 +1,5 @@
-@include('common.header')
-@include('common.sidebar')
+@include('admin.common.header')
+@include('admin.common.sidebar')
 <style>
     .btn-size
     {
@@ -120,4 +120,4 @@
     <!-- /.content -->
 </div>
 
-@include('common.footer')
+@include('admin.common.footer')
