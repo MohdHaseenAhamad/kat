@@ -20,7 +20,7 @@ class Logbook extends Migration
             $table->string('staff_deployed')->nullable();
             $table->integer('remark');
             $table->timestamps();
-        }
+        });
     }
 
     /**
@@ -30,6 +30,6 @@ class Logbook extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('logbook');
     }
 }

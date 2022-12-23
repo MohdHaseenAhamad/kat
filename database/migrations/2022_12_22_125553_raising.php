@@ -24,7 +24,7 @@ class Raising extends Migration
             $table->string('cutting_time')->nullable();
             $table->string('remark')->nullable();
             $table->timestamps();
-        }
+        });
     }
 
     /**
@@ -34,6 +34,6 @@ class Raising extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('raising');
     }
 }

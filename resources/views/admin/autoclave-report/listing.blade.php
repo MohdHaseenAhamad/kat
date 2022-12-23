@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <button type="button" id="add_id" data-action="{{url('/admin/autoclave-report/add')}}" class="btn btn-block btn-success add_id">Add RF Feding</button>
+                                <a href="{{url('/admin/autoclave-report/add')}}" class="btn btn-block btn-success">Add Autoclave</a>
                             </h3>
 
                             <div class="card-tools">
@@ -85,24 +85,24 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value['ar_autoclave_number']?></td>
-                                    <td><?=$value['ar_shift']?></td>
-                                    <td><?=$value['ar_opt_name']?></td>
-                                    <td><?=$value['ar_casting_number']?></td>
-                                    <td><?=$value['ar_material_receipt']?></td>
-                                    <td><?=$value['ar_door_closing']?></td>
-                                    <td><?=$value['ar_vacuum_time']?></td>
-                                    <td><?=$value['ar_rising_time']?></td>
-                                    <td><?=$value['ar_pressure']?></td>
-                                    <td><?=$value['ar_temp']?></td>
-                                    <td><?=$value['ar_door_opening']?></td>
-                                    <td><?=$value['ar_stream_transfer']?></td>
-                                    <td><?=$value['ar_transfer_to']?></td>
-                                    <td><?=$value['ar_time_stream_transfer']?></td>
+                                    <td><?=$value->autoclave_number?></td>
+                                    <td><?=$value->shift?></td>
+                                    <td><?=$value->operater_id?></td>
+                                    <td><?=$value->casting_number?></td>
+                                    <td><?=$value->material_receipt?></td>
+                                    <td><?=$value->door_closing?></td>
+                                    <td><?=$value->vacuum_time?></td>
+                                    <td><?=$value->rising_time?></td>
+                                    <td><?=$value->pressure?></td>
+                                    <td><?=$value->temp?></td>
+                                    <td><?=$value->door_opening?></td>
+                                    <td><?=$value->stream_transfer?></td>
+                                    <td><?=$value->transfer_to?></td>
+                                    <td><?=$value->time_stream_transfer?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{url('/admin/autoclave-report/edit/'.$value['ar_id'])}}"  class="btn btn-info btn-sm">Edit</a>&nbsp&nbsp;
-                                            <a href="{{url('/admin/autoclave-report/delete/'.$value['ar_id'])}}" class="btn btn-sm btn-danger">Delete</a>
+                                            <a href="{{url('/admin/autoclave-report/edit/'.$value->id)}}"  class="btn btn-info btn-sm">Edit</a>&nbsp&nbsp;
+                                            <a href="{{url('/admin/autoclave-report/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a>
                                         </div>
                                     </td>
                                 </tr>

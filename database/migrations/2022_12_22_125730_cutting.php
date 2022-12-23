@@ -33,7 +33,7 @@ class Cutting extends Migration
             $table->string('total_reject_block')->nullable();
             $table->string('other')->nullable();
             $table->timestamps();
-        }
+        });
     }
 
     /**
@@ -43,6 +43,6 @@ class Cutting extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('cutting');
     }
 }

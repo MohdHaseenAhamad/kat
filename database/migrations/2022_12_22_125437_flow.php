@@ -16,7 +16,7 @@ class Flow extends Migration
         Schema::create('flow',function(Blueprint $table) {
             $table->id();
             $table->integer('operater_id');
-            $table->integer('helper_if');
+            $table->integer('helper_id');
             $table->string('shift');
             $table->string('casting_number')->nullable();
             $table->string('mould_no')->nullable();
@@ -27,7 +27,7 @@ class Flow extends Migration
             $table->string('temprator')->nullable();
             $table->string('remark')->nullable();
             $table->timestamps();
-        }
+        });
     }
 
     /**
@@ -37,6 +37,6 @@ class Flow extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('flow');
     }
 }

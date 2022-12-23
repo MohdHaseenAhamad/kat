@@ -21,7 +21,7 @@ class LabourDepartment extends Migration
             $table->integer('contractor_id');
             $table->integer('operater_id');
             $table->timestamps();
-        }
+        });
     }
 
     /**
@@ -31,6 +31,6 @@ class LabourDepartment extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('labour');
     }
 }

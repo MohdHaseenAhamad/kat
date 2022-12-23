@@ -31,10 +31,7 @@ Route::get('/otp/{id}',[LoginController::class,'otp']);
 Route::post('/check-otp/{id}',[LoginController::class,'checkOtp']);
 Route::get('/test',[LoginController::class,'test']);
 Route::get('/superadmin',[SuperAdmin::class,'index'])->middleware('superadmin');
-//Route::get('/superadmin/{module}',[SuperAdmin::class,'modules']);
-//Route::get('/superadmin/{module}/add',[SuperAdmin::class,'add']);
-//Route::post('/superadmin/{module}/save',[SuperAdmin::class,'save']);
-//Route::get('/superadmin/{module}/edit/{id}/{module_id}',[SuperAdmin::class,'edit']);
+
 
 Route::get('/superadmin/department',[DepartmentController::class,'index'])->middleware('superadmin');
 Route::get('/superadmin/department/add',[DepartmentController::class,'add'])->middleware('superadmin');
@@ -103,7 +100,7 @@ Route::get('/admin/autoclave-report/view',[AutoclaveController::class,'view'])->
 Route::post('/admin/autoclave-report/save',[AutoclaveController::class,'save'])->middleware('admin');
 Route::get('/admin/autoclave-report/add',[AutoclaveController::class,'add'])->middleware('admin');
 Route::get('/admin/autoclave-report/edit/{id}',[AutoclaveController::class,'edit'])->middleware('admin');
-Route::post('/admin/autoclave-reports/update/{id}',[AutoclaveController::class,'update'])->middleware('admin');
+Route::post('/admin/autoclave-report/update/{id}',[AutoclaveController::class,'update'])->middleware('admin');
 Route::get('/admin/autoclave-report/delete/{id}',[AutoclaveController::class,'delete'])->middleware('admin');
 
 //Flow Labour Report Route

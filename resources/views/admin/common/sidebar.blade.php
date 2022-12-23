@@ -26,16 +26,23 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item ">
-                    <a href="{{url('/admin/autoclave-report')}}" class="nav-link">
+                    <a href="{{url('/admin/rf-feding')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
-                            Autoclave
-                            <!--  <i class="fas fa-angle-left right"></i>-->
+                            Rf Feeding
                         </p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="{{url('/admin/batching')}}" class="nav-link">
+                    <a href="{{url('/admin/autoclave-report')}}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Autoclave
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('/admin/batching-report')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Batching
@@ -44,16 +51,15 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="{{url('/admin/cutting')}}" class="nav-link">
+                    <a href="{{url('/admin/cutting-report')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Cutting
-                            <!--  <i class="fas fa-angle-left right"></i>-->
                         </p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="{{url('/admin/flow')}}" class="nav-link">
+                    <a href="{{url('/admin/flow-report')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Flow
@@ -69,7 +75,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="{{url('/admin/raising')}}" class="nav-link">
+                    <a href="{{url('/admin/raising-report')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Raising
@@ -77,7 +83,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="{{url('/admin/logbook')}}" class="nav-link">
+                    <a href="{{url('/admin/logbook-report')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Logbook

@@ -19,7 +19,7 @@ class Batching extends Migration
             $table->string('shift');
             $table->string('slide_plate')->nullable();
             $table->string('flow_and_height')->nullable();
-            $table->string('r_slurry')->nullable();
+            $table->string('f_slurry')->nullable();
             $table->string('cement')->nullable();
             $table->string('lime')->nullable();
             $table->string('gypsum')->nullable();
@@ -29,10 +29,9 @@ class Batching extends Migration
             $table->string('s_oil')->nullable();
             $table->string('discharge_temp')->nullable();
             $table->string('discharge_time')->nullable();
-            $table->string('discharge_time')->nullable();
             $table->string('mixing_time')->nullable();
             $table->timestamps();
-        }
+        });
     }
 
     /**
@@ -42,6 +41,6 @@ class Batching extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('batching');
     }
 }

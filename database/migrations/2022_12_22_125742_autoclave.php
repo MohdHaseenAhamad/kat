@@ -13,7 +13,7 @@ class Autoclave extends Migration
      */
     public function up()
     {
-        Schema::create('cutting',function(Blueprint $table) {
+        Schema::create('autoclave',function(Blueprint $table) {
             $table->id();
             $table->string('autoclave_number')->nullable();
             $table->integer('operater_id');
@@ -32,7 +32,7 @@ class Autoclave extends Migration
             $table->string('time_stream_transfer')->nullable();
             $table->string('other')->nullable();
             $table->timestamps();
-        }
+        });
     }
 
     /**
@@ -42,6 +42,6 @@ class Autoclave extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('autoclave');
     }
 }
