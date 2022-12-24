@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="{{url('/admin/labour-deployment')}}" class="nav-link">
+                    <a href="{{url('/admin/labour-report')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Labour Deployment

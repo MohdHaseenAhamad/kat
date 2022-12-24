@@ -14,7 +14,8 @@ class BatchingController extends Controller
     }
 
     public function add() {
-        return view('admin/batching-report/form');
+        $operator = DB::table('employee')->where('dep_id',OPERATOR_ID)->get();
+        return view('admin/batching-report/form')->with('operator',$operator);
     }
 
     public function save(Request $request) {
@@ -34,7 +35,7 @@ class BatchingController extends Controller
 
     public function update(Request $request, $id) {
         $result=$this->loadData($request,'edit');
-        $retval=DB::table('batching')->where('br_id', $id)->update($result);
+        $retval=DB::table('batching')->where('id', $id)->update($result);
         if($retval)
         {
             return redirect('/admin/batching-report/edit/'.$id)->with('success','Item update successfully!');
@@ -49,6 +50,7 @@ class BatchingController extends Controller
                 'slide_plate'=>$request->slide_plate,
                 'flow_and_height'=>$request->flow_and_height,
                 'f_slurry'=>$request->f_slurry,
+                'r_slurry'=>$request->r_slurry,
                 'cement'=>$request->cement,
                 'lime'=>$request->lime,
                 'gypsum'=>$request->gypsum,
@@ -72,8 +74,9 @@ class BatchingController extends Controller
     }
 
     public function edit($id) {
+        $operator = DB::table('employee')->where('dep_id',OPERATOR_ID)->get();
         $results = DB::table('batching')->where('id', $id)->first();
-        return view('admin/batching-report/form')->with('results', $results);
+        return view('admin/batching-report/form')->with('results', $results)->with('operator',$operator);
     }
 
     public function view() {
@@ -81,7 +84,7 @@ class BatchingController extends Controller
     }
 
     public function delete($id) {
-        $retval = DB::table('batching')->where('br_id', $id)->delete();
+        $retval = DB::table('batching')->where('id', $id)->delete();
         if($retval)
         {
             return redirect('/admin/batching-report')->with('success','Item delete successfully!');

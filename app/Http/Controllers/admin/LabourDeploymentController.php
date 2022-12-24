@@ -13,7 +13,10 @@ class LabourDeploymentController extends Controller
     }
 
     public function add() {
-        return view('admin/labour-deployment/form');
+        $operator = DB::table('employee')->where('dep_id',OPERATOR_ID)->get();
+        $contractor = DB::table('employee')->where('dep_id',CONTRACTOR_ID)->get();
+        $labour = DB::table('employee')->where('dep_id',LABOUR_ID)->get();
+        return view('admin/labour-deployment/form')->with('contractor',$contractor)->with('operator',$operator)->with('labour',$labour);
     }
 
     public function save(Request $request) {
@@ -22,7 +25,8 @@ class LabourDeploymentController extends Controller
         if($last_id >0)
         {
             return redirect('/admin/labour-report/edit/'.$last_id)->with('success','Item created successfully!');
-        }else
+        }
+        else
         {
             return redirect('/admin/labour-report/add/')->with('warning','same error....');
         }
@@ -59,8 +63,11 @@ class LabourDeploymentController extends Controller
     }
 
     public function edit($id) {
+        $operator = DB::table('employee')->where('dep_id',OPERATOR_ID)->get();
+        $contractor = DB::table('employee')->where('dep_id',CONTRACTOR_ID)->get();
+        $labour = DB::table('employee')->where('dep_id',LABOUR_ID)->get();
         $results = DB::table('labour')->where('id', $id)->first();
-        return view('admin/labour-deployment/form')->with('results', $results);
+        return view('admin/labour-deployment/form')->with('results', $results)->with('contractor',$contractor)->with('operator',$operator)->with('labour',$labour);
     }
 
     public function view() {

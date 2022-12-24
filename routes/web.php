@@ -13,6 +13,8 @@ use App\Http\Controllers\admin\RaisingController;
 use App\Http\Controllers\admin\CuttingControllter;
 use App\Http\Controllers\admin\AutoclaveController;
 use App\Http\Controllers\admin\LogbookController;
+use App\Http\Controllers\admin\LabourDeploymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -104,13 +106,13 @@ Route::post('/admin/autoclave-report/update/{id}',[AutoclaveController::class,'u
 Route::get('/admin/autoclave-report/delete/{id}',[AutoclaveController::class,'delete'])->middleware('admin');
 
 //Flow Labour Report Route
-Route::get('/admin/labour-report',[LabourreportController::class,'index'])->middleware('admin');
-Route::get('/admin/labour-report/view',[LabourreportController::class,'view'])->middleware('admin');
-Route::post('/admin/labour-report/save',[LabourreportController::class,'save'])->middleware('admin');
-Route::get('/admin/labour-report/add',[LabourreportController::class,'add'])->middleware('admin');
-Route::get('/admin/labour-report/edit/{id}',[LabourreportController::class,'edit'])->middleware('admin');
-Route::post('/admin/labour-report/update/{id}',[LabourreportController::class,'update'])->middleware('admin');
-Route::get('/admin/labour-report/delete/{id}',[LabourreportController::class,'delete'])->middleware('admin');
+Route::get('/admin/labour-report',[LabourDeploymentController::class,'index'])->middleware('admin');
+Route::get('/admin/labour-report/view',[LabourDeploymentController::class,'view'])->middleware('admin');
+Route::post('/admin/labour-report/save',[LabourDeploymentController::class,'save'])->middleware('admin');
+Route::get('/admin/labour-report/add',[LabourDeploymentController::class,'add'])->middleware('admin');
+Route::get('/admin/labour-report/edit/{id}',[LabourDeploymentController::class,'edit'])->middleware('admin');
+Route::post('/admin/labour-report/update/{id}',[LabourDeploymentController::class,'update'])->middleware('admin');
+Route::get('/admin/labour-report/delete/{id}',[LabourDeploymentController::class,'delete'])->middleware('admin');
 
 //Flow LogBook Report Route
 Route::get('/admin/logbook-report',[LogbookController::class,'index'])->middleware('admin');

@@ -66,27 +66,31 @@
                                 <tbody>
                                 <?php
                                 $i =1;
+                                if(isset($results))
+                                    {
                                 foreach ($results as $value)
                                 {
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value['rr_operator_name']?></td>
-                                    <td><?=$value['rr_shift']?></td>
-                                    <td><?=$value['rr_batch_number']?></td>
-                                    <td><?=$value['rr_batch_number']?></td>
-                                    <td><?=$value['rr_mould_no']?></td>
-                                    <td><?=$value['rr_hardness']?></td>
-                                    <td><?=$value['rr_cutting_time']?></td>
-                                    <td><?=$value['rr_remark']?></td>
+                                    <td><?=$value->operater_id?></td>
+                                    <td><?=$value->shift?></td>
+                                    <td><?=$value->batch_number?></td>
+                                    <td><?=$value->mould_no?></td>
+                                    <td><?=$value->discharge_time?></td>
+                                    <td><?=$value->hardness?></td>
+                                    <td><?=$value->cutting_time?></td>
+                                    <td><?=$value->remark?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{url('/admin/raising-report/edit/'.$value['rr_id'])}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="{{url('/admin/raising-report/delete/'.$value['rr_id'])}}" class="btn btn-sm btn-danger">Delete</a></div>
+                                            <a href="{{url('/admin/raising-report/edit/'.$value->id)}}"  class="btn btn-success">Edit</a>&nbsp;&nbsp;<a href="{{url('/admin/raising-report/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a></div>
                                     </td>
                                 </tr>
                                 <?php
                                 $i++;
                                 }
+                                    }
+
                                 ?>
 
 

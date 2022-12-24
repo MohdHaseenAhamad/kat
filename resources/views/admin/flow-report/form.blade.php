@@ -29,7 +29,7 @@
         <div class="container-fluid">
             <!-- SELECT2 EXAMPLE -->
             <?php
-            $redirect = isset($results) ? 'update/'.$results['br_id']: 'save';
+            $redirect = isset($results) ? 'update/'.$results->id: 'save';
             ?>
             <form method="POST" action="{{url('/admin/flow-report/'.$redirect)}}">
                 @csrf
@@ -39,12 +39,11 @@
                         <div class="col-md-6 col-xm-6">
                             <div class="form-group " >
                                 <h5 style="text-align: center;">Operator Name</h5>
-                                <select class="form-control select2" name="fr_operater_name" style="width: 100%;">
-                                    <option selected="selected">Select</option>
-                                    <option value="1">Ramesh</option>
-                                    <option value="2">shyam</option>
-                                    <option value="3">mohan</option>
-                                    <option value="4">tender</option>
+                                <select class="form-control select2" name="operater_id" style="width: 100%;">
+                                    <option value="0">Select</option>
+                                    <?php foreach ($operator as $opr) { ?>
+                                    <option value="<?=$opr->id?>" <?=isset($results) ? ($opr->id==$results->operater_id ? 'selected="selected"':''):'' ?>><?=$opr->name?></option>
+                                    <?php } ?>
 
                                 </select>
                             </div>
@@ -52,12 +51,11 @@
                         <div class="col-md-6 col-xm-6">
                             <div class="form-group " >
                                 <h5 style="text-align: center;">Helpers Name</h5>
-                                <select class="form-control select2"  name="fr_helper_name"  style="width: 100%;">
-                                    <option selected="selected">Select</option>
-                                    <option value="1">Ramesh</option>
-                                    <option value="2">shyam</option>
-                                    <option value="3">mohan</option>
-                                    <option value="4">tender</option>
+                                <select class="form-control select2"  name="helper_id"  style="width: 100%;">
+                                    <option value="0">Select</option>
+                                    <?php foreach ($helper as $opr) { ?>
+                                    <option value="<?=$opr->id?>" <?=isset($results) ? ($opr->id==$results->helper_id ? 'selected="selected"':''):'' ?>><?=$opr->name?></option>
+                                    <?php } ?>
 
                                 </select>
                             </div>
@@ -66,12 +64,14 @@
                         <div class="col-md-6 col-xs-6">
                             <div class="form-group">
                                 <h5 style="text-align: center;">Shift</h5>
-                                <select class="form-control select2" name="fr_shift" style="width: 100%;">
-                                    <option selected="selected">Select</option>
-                                    <option>8:00 AM to 4:00 PM</option>
-                                    <option>9:00 AM to 6:00 PM</option>
-                                    <option>10:00 AM to 7:00 PM</option>
-                                    <option>12:00 AM to 9:00 PM</option>
+                                <select class="form-control select2" name="shift" style="width: 100%;">
+                                    <option value="0">Select</option>
+                                    <?php foreach (SHIFT as $key=>$value)
+                                    {
+                                    ?>
+                                    <option value="<?=$key?>" <?=isset($results) ? ($key==$results->shift ? 'selected="selected"':''):'' ?>><?=$value?></option>
+                                    <?php
+                                    }?>
 
                                 </select>
                             </div>
@@ -87,12 +87,12 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <h5 style="">Casting Number</h5>
-                                <input type="text" class="form-control" name="fr_casting_number" value="<?=isset($results['fr_casting_number']) ? $results['fr_casting_number']:''?>" placeholder="AUTO">
+                                <input type="text" class="form-control" name="casting_number" value="<?=isset($results) ? $results->casting_number:''?>" placeholder="AUTO">
                             </div>
                             <!-- /.form-group -->
                             <div class="form-group">
                                 <h5 style="">Mould No.</h5>
-                                <input type="text" class="form-control" name="fr_mould_no" value="<?=isset($results['fr_mould_no']) ? $results['fr_mould_no']:''?>" placeholder="Enter ...">
+                                <input type="text" class="form-control" name="mould_no" value="<?=isset($results) ? $results->mould_no:''?>" placeholder="Enter ...">
                             </div>
                             <!-- /.form-group -->
                         </div>
@@ -100,37 +100,33 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <h5 >Side Plate No.</h5>
-                                <input type="text" class="form-control" name="fr_side_plate_no" value="<?=isset($results['fr_side_plate_no']) ? $results['fr_side_plate_no']:''?>" placeholder="Enter ...">
+                                <input type="text" class="form-control" name="side_plate_no" value="<?=isset($results) ? $results->side_plate_no:''?>" placeholder="Enter ...">
                             </div>
 
                             <div class="form-group">
                                 <h5>Discharge Time</h5>
-                                <input type="text" class="form-control" name="fr_discharge_time" value="<?=isset($results['fr_discharge_time']) ? $results['fr_discharge_time']:''?>" placeholder="AUTO">
+                                <input type="text" class="form-control" name="discharge_time" value="<?=isset($results) ? $results->discharge_time:''?>" placeholder="AUTO">
                             </div>
                             <div class="form-group">
                                 <h5>Flow</h5>
-                                <input type="text" class="form-control" name="fr_flow" value="<?=isset($results['fr_flow']) ? $results['fr_flow']:''?>" placeholder="Enter ...">
+                                <input type="text" class="form-control" name="flow" value="<?=isset($results) ? $results->flow:''?>" placeholder="Enter ...">
                             </div>
                             <div class="form-group">
                                 <h5>Empty Height</h5>
-                                <input type="text" class="form-control" name="fr_entry_height" value="<?=isset($results['fr_entry_height']) ? $results['fr_entry_height']:''?>" placeholder="Enter ...">
+                                <input type="text" class="form-control" name="empty_height" value="<?=isset($results) ? $results->empty_height:''?>" placeholder="Enter ...">
                             </div>
                             <div class="form-group">
                                 <h5>Temprator</h5>
-                                <input type="text" class="form-control" name="fr_temprator" value="<?=isset($results['fr_temprator']) ? $results['fr_temprator']:''?>" placeholder="Enter ...">
+                                <input type="text" class="form-control" name="temprator" value="<?=isset($results) ? $results->temprator:''?>" placeholder="Enter ...">
                             </div>
                             <div class="form-group">
                                 <h5>Remark</h5>
-                                <textarea class="form-control" rows="3" name="fr_remark" value="<?=isset($results['fr_remark']) ? $results['fr_remark']:''?>" placeholder="Enter ..."></textarea>
+                                <textarea class="form-control" rows="3" name="remark" placeholder="Enter ..."><?=isset($results) ? $results->remark:''?></textarea>
                             </div>
 
 
                         </div>
-                        <div class="card-footer">
-                            <input class="form-check-input" type="checkbox">
-                            I/We herby Confirm that I have properly maintained & cleaned the machines & area under my operation at the end of shift...
-                        </div>
-                        <button type="submit" class="btn btn-block btn-secondary btn-sm">Submit</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
                     </div>
 
                 </div>

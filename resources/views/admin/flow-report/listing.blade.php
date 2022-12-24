@@ -33,7 +33,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <button type="button" id="add_id" data-action="{{url('/admin/flow-report/add')}}" class="btn btn-block btn-success add_id">Add RF Feding</button>
+                                <button type="button" id="add_id" data-action="{{url('/admin/flow-report/add')}}" class="btn btn-block btn-success add_id">Add Flow</button>
                             </h3>
 
                             <div class="card-tools">
@@ -68,29 +68,33 @@
                                 <tbody>
                                 <?php
                                 $i =1;
+                                if(isset($results))
+                                    {
                                 foreach ($results as $value)
                                 {
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value['fr_operater_name']?></td>
-                                    <td><?=$value['fr_shift']?></td>
-                                    <td><?=$value['fr_helpers_name']?></td>
-                                    <td><?=$value['fr_mould_no']?></td>
-                                    <td><?=$value['fr_side_plate_no']?></td>
-                                    <td><?=$value['fr_discharge_time']?></td>
-                                    <td><?=$value['fr_flow']?></td>
-                                    <td><?=$value['fr_empty_height']?></td>
-                                    <td><?=$value['fr_temprator']?></td>
-                                    <td><?=$value['fr_remark']?></td>
+                                    <td><?=$value->operater_id?></td>
+                                    <td><?=$value->shift?></td>
+                                    <td><?=$value->helper_id?></td>
+                                    <td><?=$value->mould_no?></td>
+                                    <td><?=$value->side_plate_no?></td>
+                                    <td><?=$value->discharge_time?></td>
+                                    <td><?=$value->flow?></td>
+                                    <td><?=$value->empty_height?></td>
+                                    <td><?=$value->temprator?></td>
+                                    <td><?=$value->remark?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{url('/admin/flow-report/edit/'.$value['fr_id'])}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="{{url('/admin/flow-report/delete/'.$value['fr_id'])}}" class="btn btn-sm btn-danger">Delete</a></div>
+                                            <a href="{{url('/admin/flow-report/edit/'.$value->id)}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="{{url('/admin/flow-report/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a></div>
                                     </td>
                                 </tr>
                                 <?php
                                 $i++;
                                 }
+                                    }
+
                                 ?>
 
 

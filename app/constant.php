@@ -2,6 +2,10 @@
 
 define('DATE_FORMAT','Y-m-d H:i:s');
 define('OPERATOR_ID',2);
+define('STORE_INCHARGE_ID',1);
+define('HELPER_ID',3);
+define('CONTRACTOR_ID',6);
+define('LABOUR_ID',7);
 define('AUTOCLAVE_NUMBER',array('1'=>'1','2'=>'2','3'=>'3'));
 define('CASTING_NUMBER',array('1'=>'1','2'=>'2','3'=>'3'));
 define('STREET_TRANSFER',array('1'=>'1','2'=>'2','3'=>'3'));

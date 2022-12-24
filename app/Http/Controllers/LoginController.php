@@ -28,7 +28,8 @@ class LoginController extends Controller
             {
                 return redirect('/')->with('warning',"Your phone number not register please contact:- 7309589697");
             }
-        }else
+        }
+        else
         {
             return redirect('/');
         }
@@ -72,8 +73,8 @@ class LoginController extends Controller
     }
     public function getOTP()
     {
-//        return (App::environment()=='prduction') ? mt_rand(100000, 999999) : '111111';
-        return mt_rand(100000, 999999);
+        return (App::environment()=='prduction') ? mt_rand(100000, 999999) : '111111';
+//        return mt_rand(100000, 999999);
     }
     public function logout() {
         Session::flush();

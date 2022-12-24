@@ -13,11 +13,15 @@ class FlowController extends Controller
         return view('admin/flow-report/listing')->with('results',$results);
     }
 
-    public function add() {
-        return view('admin/flow-report/form');
+    public function add()
+    {
+        $operator = DB::table('employee')->where('dep_id',OPERATOR_ID)->get();
+        $helper = DB::table('employee')->where('dep_id',HELPER_ID)->get();
+        return view('admin/flow-report/form')->with('operator',$operator)->with('helper',$helper);
     }
 
-    public function save(Request $request) {
+    public function save(Request $request)
+    {
         $data=$this->loadData($request,'add');
         $last_id=DB::table('flow')->insertGetId($data);
         if($last_id >0)
@@ -28,13 +32,12 @@ class FlowController extends Controller
         {
             return redirect('/admin/flow-report/add/')->with('warning','same error....');
         }
-
-
     }
 
-    public function update(Request $request, $id) {
-        $result=$this->loadData($request, '', 'edit');
-        $retval=DB::table('flow')->where('rf_id', $id)->update($result);
+    public function update(Request $request, $id)
+    {
+        $result=$this->loadData($request,'edit');
+        $retval=DB::table('flow')->where('id', $id)->update($result);
         if($retval>0)
         {
             return redirect('/admin/flow-report/edit/'.$id)->with('success','Item update successfully!');
@@ -53,7 +56,7 @@ class FlowController extends Controller
                 'side_plate_no'=>$request->side_plate_no,
                 'discharge_time'=>$request->discharge_time,
                 'flow'=>$request->flow,
-                'entry_height'=>$request->entry_height,
+                'empty_height'=>$request->empty_height,
                 'temprator'=>$request->temprator,
                 'remark'=>$request->remark,
             ];
@@ -68,15 +71,15 @@ class FlowController extends Controller
     }
 
     public function edit($id) {
-
+        $operator = DB::table('employee')->where('dep_id',OPERATOR_ID)->get();
+        $helper = DB::table('employee')->where('dep_id',HELPER_ID)->get();
         $results = DB::table('flow')->where('id', $id)->first();
-        return view('admin/flow-report/form')->with('results', $results);
+        return view('admin/flow-report/form')->with('results', $results)->with('operator',$operator)->with('helper',$helper);
     }
 
     public function view() {
         echo "<h1>This is Rf Feding View</h1>";
     }
-
     public function delete($id) {
         $retval=DB::table('flow')->where('id', $id)->delete();
         if($retval)

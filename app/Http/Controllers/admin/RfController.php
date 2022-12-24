@@ -14,7 +14,8 @@ class RfController extends Controller
     }
 
     public function add() {
-        return view('admin/rf-feding/form');
+        $store_incharge = DB::table('employee')->where('dep_id',STORE_INCHARGE_ID)->get();
+        return view('admin/rf-feding/form')->with('store_incharge',$store_incharge);
     }
 
     public function save(Request $request)
@@ -51,11 +52,11 @@ class RfController extends Controller
                 'fly_ash_bulker'=>$request->fly_ash_bulker,
                 'fly_ash_dumper'=>$request->fly_ash_dumper,
                 'cement_bulker'=>$request->cement_bulker,
-                'cement_beg'=>$request->cement_beg,
+                'cement_bag'=>$request->cement_bag,
                 'gypsum'=>$request->gypsum,
                 'lime_bulker'=>$request->lime_bulker,
                 'lime_bag'=>$request->lime_bag,
-                'alumimium'=>$request->alumimium,
+                'aluminium'=>$request->aluminium,
                 'husk'=>$request->husk,
                 'soluble'=>$request->soluble,
                 'moud_oil'=>$request->moud_oil,
@@ -73,9 +74,9 @@ class RfController extends Controller
     }
 
     public function edit($id) {
-
+        $store_incharge = DB::table('employee')->where('dep_id',STORE_INCHARGE_ID)->get();
         $results = DB::table('rf_feding')->where('id', $id)->first();
-        return view('admin/rf-feding/form')->with('results', $results);
+        return view('admin/rf-feding/form')->with('results', $results)->with('store_incharge',$store_incharge);
     }
 
     public function view() {

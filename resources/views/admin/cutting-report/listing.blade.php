@@ -85,28 +85,28 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value['cr_opreator_name']?></td>
-                                    <td><?=$value['cr_shift']?></td>
-                                    <td><?=$value['cr_batch_number']?></td>
-                                    <td><?=$value['cr_side_plate_no']?></td>
-                                    <td><?=$value['cr_timing']?></td>
-                                    <td><?=$value['cr_size']?></td>
-                                    <td><?=$value['cr_cracks']?></td>
-                                    <td><?=$value['cr_chipping']?></td>
-                                    <td><?=$value['cr_heavy_line']?></td>
-                                    <td><?=$value['cr_corner_damage']?></td>
-                                    <td><?=$value['cr_top_layer']?></td>
-                                    <td><?=$value['cr_tilting_damage']?></td>
-                                    <td><?=$value['cr_less_raising']?></td>
-                                    <td><?=$value['cr_scrap_layer']?></td>
-                                    <td><?=$value['cr_uncutt_blocks']?></td>
-                                    <td><?=$value['cr_total_reject_block']?></td>
-                                    <td><?=$value['cr_other']?></td>
+                                    <td><?=$value->operater_id?></td>
+                                    <td><?=$value->shift?></td>
+                                    <td><?=$value->batch_number?></td>
+                                    <td><?=$value->side_plate_no?></td>
+                                    <td><?=$value->timing?></td>
+                                    <td><?=$value->size?></td>
+                                    <td><?=$value->cracks?></td>
+                                    <td><?=$value->chipping?></td>
+                                    <td><?=$value->heavy_line?></td>
+                                    <td><?=$value->corner_damage?></td>
+                                    <td><?=$value->top_layer?></td>
+                                    <td><?=$value->tilting_damage?></td>
+                                    <td><?=$value->less_raising?></td>
+                                    <td><?=$value->scrap_layer?></td>
+                                    <td><?=$value->uncutt_blocks?></td>
+                                    <td><?=$value->total_reject_block?></td>
+                                    <td><?=$value->other?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{url('/admin/cutting-report/edit/'.$value['cr_id'])}}"
+                                            <a href="{{url('/admin/cutting-report/edit/'.$value->id)}}"
                                                class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a
-                                                href="{{url('/admin/cutting-report/delete/'.$value['cr_id'])}}"
+                                                href="{{url('/admin/cutting-report/delete/'.$value->id)}}"
                                                 class="btn btn-sm btn-danger">Delete</a></div>
                                     </td>
                                 </tr>

@@ -19,6 +19,7 @@ class RfFeding extends Migration
             $table->integer('store_incharge_id');
             $table->string('shift');
             $table->string('fly_ash_bulker')->nullable();
+            $table->string('fly_ash_dumper')->nullable();
             $table->string('cement_bulker')->nullable();
             $table->string('cement_bag')->nullable();
             $table->string('gypsum')->nullable();

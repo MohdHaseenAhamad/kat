@@ -1,8 +1,7 @@
 @include('admin.common.header')
 @include('admin.common.sidebar')
 <style>
-    .btn-size
-    {
+    .btn-size {
 
     }
 </style>
@@ -33,15 +32,19 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <button type="button" id="add_id" data-action="{{url('/admin/labour-report/add')}}" class="btn btn-block btn-success add_id">Add RF Feding</button>
+                                <button type="button" id="add_id" data-action="{{url('/admin/labour-report/add')}}"
+                                        class="btn btn-block btn-success add_id">Add Labour Deployment
+                                </button>
                             </h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <input type="text" name="table_search" class="form-control float-right"
+                                           placeholder="Search">
 
                                     <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -62,25 +65,32 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                $i =1;
+                                $i = 1;
+                                if(isset($results))
+                                {
                                 foreach ($results as $value)
                                 {
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value['lr_shift']?></td>
-                                    <td><?=$value['lr_name_of_labour']?></td>
-                                    <td><?=$value['lr_area_of_work']?></td>
-                                    <td><?=$value['lr_contractor_name']?></td>
-                                    <td><?=$value['lr_reporting_operator_name']?></td>
+                                    <td><?=$value->shift?></td>
+                                    <td><?=$value->labour_id?></td>
+                                    <td><?=$value->area_of_work?></td>
+                                    <td><?=$value->contractor_id?></td>
+                                    <td><?=$value->operater_id?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{url('/admin/labour-report/edit/'.$value['lr_id'])}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="{{url('/admin/labour-report/delete/'.$value['lr_id'])}}" class="btn btn-sm btn-danger">Delete</a></div>
+                                            <a href="{{url('/admin/labour-report/edit/'.$value->id)}}"
+                                               class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a
+                                                href="{{url('/admin/labour-report/delete/'.$value->id)}}"
+                                                class="btn btn-sm btn-danger">Delete</a></div>
                                     </td>
                                 </tr>
                                 <?php
                                 $i++;
                                 }
+                                }
+
                                 ?>
 
 

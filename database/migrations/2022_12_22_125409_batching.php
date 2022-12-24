@@ -20,6 +20,7 @@ class Batching extends Migration
             $table->string('slide_plate')->nullable();
             $table->string('flow_and_height')->nullable();
             $table->string('f_slurry')->nullable();
+            $table->string('r_slurry')->nullable();
             $table->string('cement')->nullable();
             $table->string('lime')->nullable();
             $table->string('gypsum')->nullable();

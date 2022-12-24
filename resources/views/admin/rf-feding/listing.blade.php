@@ -82,22 +82,22 @@
                                         ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value['rf_store_incharge']?></td>
-                                    <td><?=$value['rf_shift']?></td>
-                                    <td><?=$value['rf_fly_ash_bulker']?></td>
-                                    <td><?=$value['rf_fly_ash_dumper']?></td>
-                                    <td><?=$value['rf_cement_bulker']?></td>
-                                    <td><?=$value['rf_cement_beg']?></td>
-                                    <td><?=$value['rf_gypsum']?></td>
-                                    <td><?=$value['rf_lime_bulker']?></td>
-                                    <td><?=$value['rf_lime_bag']?></td>
-                                    <td><?=$value['rf_alumimium']?></td>
-                                    <td><?=$value['rf_husk']?></td>
-                                    <td><?=$value['rf_soluble']?></td>
-                                    <td><?=$value['rf_moud_oil']?></td>
+                                    <td><?=$value->store_incharge_id?></td>
+                                    <td><?=$value->shift?></td>
+                                    <td><?=$value->fly_ash_bulker?></td>
+                                    <td><?=$value->fly_ash_dumper?></td>
+                                    <td><?=$value->cement_bulker?></td>
+                                    <td><?=$value->cement_bag?></td>
+                                    <td><?=$value->gypsum?></td>
+                                    <td><?=$value->lime_bulker?></td>
+                                    <td><?=$value->lime_bag?></td>
+                                    <td><?=$value->aluminium?></td>
+                                    <td><?=$value->husk?></td>
+                                    <td><?=$value->soluble?></td>
+                                    <td><?=$value->moud_oil?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{url('/admin/rf-feding/edit/'.$value['rf_id'])}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="{{url('/admin/rf-feding/delete/'.$value['rf_id'])}}" class="btn btn-sm btn-danger">Delete</a></div>
+                                            <a href="{{url('/admin/rf-feding/edit/'.$value->id)}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="{{url('/admin/rf-feding/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a></div>
                                     </td>
                                 </tr>
 <?php

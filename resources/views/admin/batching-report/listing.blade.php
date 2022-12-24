@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <button type="button" id="add_id" data-action="{{url('/admin/batching-report/add')}}" class="btn btn-block btn-success add_id">Add RF Feding</button>
+                                <button type="button" id="add_id" data-action="{{url('/admin/batching-report/add')}}" class="btn btn-block btn-success add_id">Add Batching</button>
                             </h3>
 
                             <div class="card-tools">
@@ -86,24 +86,24 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value['br_opreator_name']?></td>
-                                    <td><?=$value['br_shift']?></td>
-                                    <td><?=$value['br_mould_plate']?></td>
-                                    <td><?=$value['br_flow']?></td>
-                                    <td><?=$value['br_f_slurry']?></td>
-                                    <td><?=$value['br_r_slurry']?></td>
-                                    <td><?=$value['br_coment']?></td>
-                                    <td><?=$value['br_lime']?></td>
-                                    <td><?=$value['br_gypsum']?></td>
-                                    <td><?=$value['br_aluminium_powder']?></td>
-                                    <td><?=$value['br_extra_water']?></td>
-                                    <td><?=$value['br_s_oil']?></td>
-                                    <td><?=$value['br_discharge_temp']?></td>
-                                    <td><?=$value['br_discharge_time']?></td>
-                                    <td><?=$value['br_mixing_time']?></td>
+                                    <td><?=$value->operater_id?></td>
+                                    <td><?=$value->shift?></td>
+                                    <td><?=$value->slide_plate?></td>
+                                    <td><?=$value->flow_and_height?></td>
+                                    <td><?=$value->f_slurry?></td>
+                                    <td><?=$value->r_slurry?></td>
+                                    <td><?=$value->cement?></td>
+                                    <td><?=$value->lime?></td>
+                                    <td><?=$value->gypsum?></td>
+                                    <td><?=$value->aluminium_powder?></td>
+                                    <td><?=$value->extra_water?></td>
+                                    <td><?=$value->s_oil?></td>
+                                    <td><?=$value->discharge_temp?></td>
+                                    <td><?=$value->discharge_time?></td>
+                                    <td><?=$value->mixing_time?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{url('/admin/batching-report/edit/'.$value['br_id'])}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="{{url('/admin/batching-report/delete/'.$value['br_id'])}}" class="btn btn-sm btn-danger">Delete</a></div>
+                                            <a href="{{url('/admin/batching-report/edit/'.$value->id)}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="{{url('/admin/batching-report/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a></div>
                                     </td>
                                 </tr>
                                 <?php
