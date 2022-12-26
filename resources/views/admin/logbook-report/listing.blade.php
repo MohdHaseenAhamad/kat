@@ -1,8 +1,7 @@
 @include('admin.common.header')
 @include('admin.common.sidebar')
 <style>
-    .btn-size
-    {
+    .btn-size {
 
     }
 </style>
@@ -12,7 +11,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h6>Flow Report List</h6>
+                    <h6>LogBook List</h6>
                 </div>
             </div>
         </div>
@@ -33,15 +32,19 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <button type="button" id="add_id" data-action="{{url('/admin/logbook-report/add')}}" class="btn btn-block btn-success add_id">Add RF Feding</button>
+                                <button type="button" id="add_id" data-action="{{url('/admin/logbook-report/add')}}"
+                                        class="btn btn-block btn-success add_id">Add LogBook
+                                </button>
                             </h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <input type="text" name="table_search" class="form-control float-right"
+                                           placeholder="Search">
 
                                     <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -61,24 +64,31 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                $i =1;
+                                $i = 1;
+                                if(isset($results))
+                                {
                                 foreach ($results as $value)
                                 {
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value['lbr_staff_deployed']?></td>
-                                    <td><?=$value['lbr_status']?></td>
-                                    <td><?=$value['lbr_remark']?></td>
-                                    <td><?=$value['lbr_work_desc']?></td>
+                                    <td><?=$value->staff_deployed_id?></td>
+                                    <td><?=$value->status?></td>
+                                    <td><?=$value->remark?></td>
+                                    <td><?=$value->work_description?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{url('/admin/logbook-report/edit/'.$value['lbr_id'])}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="{{url('/admin/logbook-report/delete/'.$value['lbr_id'])}}" class="btn btn-sm btn-danger">Delete</a></div>
+                                            <a href="{{url('/admin/logbook-report/edit/'.$value->id)}}"
+                                               class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a
+                                                href="{{url('/admin/logbook-report/delete/'.$value->id)}}"
+                                                class="btn btn-sm btn-danger">Delete</a></div>
                                     </td>
                                 </tr>
                                 <?php
                                 $i++;
                                 }
+                                }
+
                                 ?>
 
 

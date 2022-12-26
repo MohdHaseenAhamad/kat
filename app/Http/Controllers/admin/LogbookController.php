@@ -13,56 +13,57 @@ class LogbookController extends Controller
     }
 
     public function add() {
-        return view('admin/logbook-report/form');
+        $employee = DB::table('employee')->get();
+        return view('admin/logbook-report/form')->with('employee',$employee);
     }
 
     public function save(Request $request) {
-
         $data=$this->loadData($request, 'add');
-             $last_id=DB::table('logbook')->insertGetId($data);
+        $last_id=DB::table('logbook')->insertGetId($data);
         if($last_id > 0)
         {
             return redirect('/admin/logbook-report/edit/'.$last_id)->with('success','Item created successfully!');
-        }else
-        {
-            return redirect('/admin/logbook-report/add/')->with('warning','same error....');
-        }
-
-
-    }
-
-    public function update(Request $request, $id) {
-        $result=$this->loadData($request, '', 'edit');
-        LogBook::where('lbr_id', $id)->update($result);
-        return redirect('/admin/logbook-report/edit/'.$id)->with('success','Item update successfully!');
-    }
-
-    public function loadData($request, $obj, $mode)
-    {
-        if($mode=='add')
-        {
-            $obj->lbr_work_desc = $request->lbr_work_desc;
-            $obj->lbr_status = $request->lbr_status;
-            $obj->lbr_staff_deployed = $request->lbr_staff_deployed;
-            $obj->lbr_remark = $request->lbr_remark;
-            $obj->created_at = date('Y-m-d H:i:s');
         }
         else
         {
-            $data = [
-                'lbr_work_desc'=>$request->lbr_work_desc,
-                'lbr_status'=>$request->lbr_status,
-                'lbr_staff_deployed'=>$request->lbr_staff_deployed,
-                'lbr_remark'=>$request->lbr_remark,
-            ];
-            return $data;
+            return redirect('/admin/logbook-report/add/')->with('warning','same error....');
         }
     }
 
+    public function update(Request $request, $id) {
+        $result=$this->loadData($request,'edit');
+        $retVal=DB::table('logbook')->where('id', $id)->update($result);
+        if($retVal)
+        {
+            return redirect('/admin/logbook-report/edit/'.$id)->with('success','Item update successfully!');
+        }
+
+    }
+
+    public function loadData($request, $mode)
+    {
+
+            $data = [
+                'work_description'=>$request->work_description,
+                'status'=>$request->status,
+                'staff_deployed_id'=>$request->staff_deployed_id,
+                'remark'=>$request->remark,
+            ];
+            if($mode=='add')
+            {
+                $data['created_at'] = date(DATE_FORMAT);
+            }else
+            {
+                $data['updated_at'] = date(DATE_FORMAT);
+            }
+            return $data;
+
+    }
+
     public function edit($id) {
-        $obj = new LogBook();
-        $results = $obj->where('lbr_id', $id)->first();
-        return view('admin/logbook-report/form')->with('results', $results);
+        $results = DB::table('logbook')->where('id', $id)->first();
+        $employee = DB::table('employee')->get();
+        return view('admin/logbook-report/form')->with('results', $results)->with('employee',$employee);
     }
 
     public function view() {
@@ -70,8 +71,8 @@ class LogbookController extends Controller
     }
 
     public function delete($id) {
-        $obj = new LogBook();
-        if($obj->where('lbr_id', $id)->delete())
+        $retVal=DB::table('logbook')->where('id', $id)->delete();
+        if($retVal)
         {
             return redirect('/admin/logbook-report')->with('success','Item delete successfully!');
         }

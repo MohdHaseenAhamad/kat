@@ -17,8 +17,8 @@ class Logbook extends Migration
             $table->id();
             $table->string('work_description')->nullable();
             $table->integer('status');
-            $table->string('staff_deployed')->nullable();
-            $table->integer('remark');
+            $table->integer('staff_deployed_id')->nullable();
+            $table->string('remark')->nullable();
             $table->timestamps();
         });
     }

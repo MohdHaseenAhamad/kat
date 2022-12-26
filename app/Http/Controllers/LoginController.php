@@ -9,6 +9,14 @@ class LoginController extends Controller
 {
     public function index()
     {
+        if(session()->has('superadmin'))
+        {
+            return redirect('/superadmin');
+        }
+        if(session()->has('admin'))
+        {
+            return redirect('/admin');
+        }
         return view('login');
     }
     public function sendOtp(Request $request)
@@ -57,6 +65,7 @@ class LoginController extends Controller
             if($retval[0]->user_type==1)
             {
                 Session::put('superadmin',$retval[0]);
+                Session::put('admin',$retval[0]);
                 return redirect('/superadmin');
             }
             else
