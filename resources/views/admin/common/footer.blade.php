@@ -57,10 +57,26 @@
             var web_location =$(this).attr('data-action');
             window.location.href = web_location;
         });
+        $(".paid").click(function () {
+            bootbox.alert({
+                message: 'This is an alert with a callback!',
+                callback: function () {
+                    console.log('This was logged in the callback!');
+                }
+            });
+        });
     });
-    function deleteIt(_this,name) {
+    function paid()
+    {
+        bootbox.alert({
+            message: 'This is an alert with additional classes!',
+            className: 'rubberBand animated',
+
+        });
+    }
+    function deleteIt(_this,id) {
         var url = $(_this).attr('data-href');
-        var msg = "Are you sure? <br> You want to delete "+name;
+        var msg = "Are you sure ? You want to delete record no. "+id;
         bootbox.confirm({
             message: msg,
             buttons: {

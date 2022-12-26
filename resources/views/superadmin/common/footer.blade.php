@@ -58,6 +58,16 @@
             window.location.href = web_location;
         });
     });
+    function paid(_this)
+    {
+        var rs=$(_this).attr('data-rup');
+        bootbox.alert({
+            message: '<h3>If are you active this feature<br> Please Call <b> <?=CONTACT_NUMBER?> </b><span class="fas fa-phone"></span><br> This Module charge is '+rs+' RS only</h3>',
+            className: 'rubberBand animated',
+            centerVertical: true,
+
+        });
+    }
     function deleteIt(_this,name) {
         var url = $(_this).attr('data-href');
         var msg = "Are you sure? <br> You want to delete "+name;
@@ -81,6 +91,7 @@
             }
         });
     }
+
 </script>
 </body>
 </html>

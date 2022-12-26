@@ -6,8 +6,9 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <h1 class="m-0 text-dark">Dashboard</h1>
+                        <h3><b>If You are Update Website and Create New Website Please Contact <a href="tel:<?=CONTACT_NUMBER?>"><?=CONTACT_NUMBER?></a> <span class="fas fa-phone"></span></b> </h3>
                     </div><!-- /.col -->
                     <!--<div class="col-sm-6">
                       <ol class="breadcrumb float-sm-right">
@@ -35,7 +36,7 @@
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="{{url($value['url'])}}" target="_blank" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{url($value['url'])}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 <?php } ?>

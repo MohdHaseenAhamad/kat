@@ -38,20 +38,9 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <a href="{{url('superadmin/department/add')}}" class="btn btn-block btn-success add_id">Add Employee </a>
+                                <a href="javascript:void(0);" onclick="return paid(this)" data-rup="500" data-href="{{url('superadmin/department/add')}}" class="btn btn-block btn-success">Add Employee </a>
                             </h3>
 
-                            <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right"
-                                           placeholder="Search">
-
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">

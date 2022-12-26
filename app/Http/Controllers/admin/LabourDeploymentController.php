@@ -78,7 +78,7 @@ class LabourDeploymentController extends Controller
         $retval = DB::table('labour')->where('id', $id)->delete();
         if($retval)
         {
-            return redirect('/admin/labour-reports')->with('success','Item delete successfully!');
+            return redirect('/admin/labour-report')->with('success','Item delete successfully!');
         }
     }
 }
