@@ -42,7 +42,7 @@
                                         <?php foreach ($store_incharge as $si)
                                         {
                                         ?>
-                                        <option value="<?=$si->id?>"><?=$si->name?></option>
+                                        <option value="<?=$si->id?>" <?=isset($results) ? ($results->store_incharge_id==$si->id ? 'selected="selected"':''):''?>><?=$si->name?></option>
                                         <?php
                                         }?>
 
@@ -60,7 +60,7 @@
                                         <?php foreach (SHIFT as $key=>$value)
                                         {
                                         ?>
-                                        <option value="<?=$key?>"><?=$value?></option>
+                                        <option value="<?=$key?>" <?=isset($results) ? ($results->shift==$key ? 'selected="selected"':''):''?>><?=$value?></option>
                                         <?php
                                         }?>
                                     </select>

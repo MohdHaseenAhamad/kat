@@ -141,7 +141,7 @@
                                     <?php foreach (STREET_TRANSFER as $key=>$value)
                                     {
                                     ?>
-                                    <option value="<?=$key?>" ><?=$value?></option>
+                                    <option value="<?=$key?>" <?=isset($results) ? ($results->stream_transfer ==$key ? 'selected="selected"':''):''?>><?=$value?></option>
                                     <?php
                                     }
                                     ?>
