@@ -77,8 +77,8 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->operater_id?></td>
-                                    <td><?=$value->shift?></td>
+                                    <td><?=$value->employee_name?></td>
+                                    <td><?=SHIFT[$value->shift]?></td>
                                     <td><?=$value->slide_plate?></td>
                                     <td><?=$value->flow_and_height?></td>
                                     <td><?=$value->f_slurry?></td>

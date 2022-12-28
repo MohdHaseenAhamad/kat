@@ -8,7 +8,10 @@ use DB;
 class LogbookController extends Controller
 {
     public function index() {
-        $results = DB::table('logbook')->get();
+        $results = DB::table('logbook')
+            ->leftJoin('employee','employee.id','=','logbook.staff_deployed_id')
+            ->select('logbook.*','employee.name as employee_name')
+            ->get();
         return view('admin/logbook-report/listing')->with('results',$results);
     }
 

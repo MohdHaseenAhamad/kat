@@ -61,8 +61,8 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->staff_deployed_id?></td>
-                                    <td><?=$value->status?></td>
+                                    <td><?=$value->employee_name?></td>
+                                    <td><?=STATUS[$value->status]?></td>
                                     <td><?=$value->remark?></td>
                                     <td><?=$value->work_description?></td>
                                     <td>

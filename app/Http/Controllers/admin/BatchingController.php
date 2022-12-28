@@ -9,7 +9,10 @@ use DB;
 class BatchingController extends Controller
 {
     public function index() {
-        $results=DB::table('batching')->get();
+        $results=DB::table('batching')
+            ->leftJoin('employee','employee.id','=','batching.operater_id')
+            ->select('batching.*','employee.name as employee_name')
+            ->get();
         return view('admin/batching-report/listing')->with('results',$results);
     }
 

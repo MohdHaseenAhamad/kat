@@ -61,7 +61,7 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->shift?></td>
+                                    <td><?=SHIFT[$value->shift]?></td>
                                     <td><?=$value->labour_id?></td>
                                     <td><?=$value->area_of_work?></td>
                                     <td><?=$value->contractor_id?></td>

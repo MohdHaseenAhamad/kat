@@ -61,13 +61,14 @@
                                 $i =1;
                                 if(isset($results))
                                     {
+//                                        dd($results);
                                 foreach ($results as $value)
                                 {
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->operater_id?></td>
-                                    <td><?=$value->shift?></td>
+                                    <td><?=$value->employee_name?></td>
+                                    <td><?=SHIFT[$value->shift]?></td>
                                     <td><?=$value->helper_id?></td>
                                     <td><?=$value->mould_no?></td>
                                     <td><?=$value->side_plate_no?></td>

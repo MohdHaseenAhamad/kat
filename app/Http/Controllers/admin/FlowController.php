@@ -9,7 +9,10 @@ use DB;
 class FlowController extends Controller
 {
     public function index() {
-        $results=DB::table('flow')->get();
+        $results=DB::table('flow')
+            ->leftJoin('employee','employee.id','=','flow.operater_id')
+            ->select('flow.*','employee.name as employee_name')
+            ->get();
         return view('admin/flow-report/listing')->with('results',$results);
     }
 

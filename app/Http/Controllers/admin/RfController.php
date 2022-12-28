@@ -9,7 +9,10 @@ use DB;
 class RfController extends Controller
 {
     public function index() {
-        $results=DB::table('rf_feding')->get();
+        $results=DB::table('rf_feding')
+            ->leftJoin('employee','employee.id','=','rf_feding.store_incharge_id')
+            ->select('rf_feding.*','employee.name as employee_name')
+            ->get();
         return view('admin/rf-feding/listing')->with('results',$results);
     }
 

@@ -73,8 +73,8 @@
                                         ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->store_incharge_id?></td>
-                                    <td><?=$value->shift?></td>
+                                    <td><?=$value->employee_name?></td>
+                                    <td><?=SHIFT[$value->shift]?></td>
                                     <td><?=$value->fly_ash_bulker?></td>
                                     <td><?=$value->fly_ash_dumper?></td>
                                     <td><?=$value->cement_bulker?></td>

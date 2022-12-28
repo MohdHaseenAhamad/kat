@@ -21,6 +21,14 @@ class LoginController extends Controller
     }
     public function sendOtp(Request $request)
     {
+        if(session()->has('superadmin'))
+        {
+            return redirect('/superadmin');
+        }
+        if(session()->has('admin'))
+        {
+            return redirect('/admin');
+        }
         $phone_number=$request->input('usr_phone');
         if(!empty($phone_number))
         {

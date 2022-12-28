@@ -76,10 +76,10 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->autoclave_number?></td>
-                                    <td><?=$value->shift?></td>
-                                    <td><?=$value->operater_id?></td>
-                                    <td><?=$value->casting_number?></td>
+                                    <td><?=AUTOCLAVE_NUMBER[$value->autoclave_number]?></td>
+                                    <td><?=SHIFT[$value->shift]?></td>
+                                    <td><?=$value->employee_name?></td>
+                                    <td><?=CASTING_NUMBER[$value->casting_number]?></td>
                                     <td><?=$value->material_receipt?></td>
                                     <td><?=$value->door_closing?></td>
                                     <td><?=$value->vacuum_time?></td>

@@ -8,7 +8,10 @@ use DB;
 
 class CuttingControllter extends Controller {
     public function index() {
-        $results = DB::table('cutting')->get();
+        $results = DB::table('cutting')
+            ->leftJoin('employee','employee.id','=','cutting.operater_id')
+            ->select('cutting.*','employee.name as employee_name')
+            ->get();
         return view('admin/cutting-report/listing')->with('results', $results);
     }
 

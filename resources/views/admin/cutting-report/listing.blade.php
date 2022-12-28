@@ -74,8 +74,8 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->operater_id?></td>
-                                    <td><?=$value->shift?></td>
+                                    <td><?=$value->employee_name?></td>
+                                    <td><?=SHIFT[$value->shift]?></td>
                                     <td><?=$value->batch_number?></td>
                                     <td><?=$value->side_plate_no?></td>
                                     <td><?=$value->timing?></td>

@@ -9,7 +9,10 @@ use DB;
 class AutoclaveController extends Controller
 {
     public function index() {
-        $results=DB::table('autoclave')->get();
+        $results=DB::table('autoclave')
+            ->leftJoin('employee','employee.id','=','autoclave.operater_id')
+            ->select('autoclave.*','employee.name as employee_name')
+                ->get();
         return view('admin/autoclave-report/listing')->with('results',$results);
     }
 
