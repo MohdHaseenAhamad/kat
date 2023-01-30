@@ -29,7 +29,8 @@ class FlowController extends Controller
         $last_id=DB::table('flow')->insertGetId($data);
         if($last_id >0)
         {
-            return redirect('/admin/flow-report/edit/'.$last_id)->with('success','Item created successfully!');
+//            return redirect('/admin/flow-report/edit/'.$last_id)->with('success','Item created successfully!');
+            return redirect('/admin/flow-report')->with('success','Item created successfully!');
         }
         else
         {

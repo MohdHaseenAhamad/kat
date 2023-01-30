@@ -34,7 +34,7 @@
             <?php
             $redirect = isset($results) ? 'update/'.$results->id: 'save';
             ?>
-            <form method="post" action="{{url('/admin/logbook-report/'.$redirect)}}">
+            <form id="logbook_form" name="logbook_form" method="post" action="{{url('/admin/logbook-report/'.$redirect)}}">
                 @csrf
             <div class="card card-default">
                 <div class="card-body">
@@ -51,7 +51,7 @@
                             <div class="form-group">
                                 <h5 style="text-align: center;">Status</h5>
                                 <select class="form-control select2" name="status" style="width: 100%;">
-                                    <option value="0">Select</option>
+                                    <option value="">Select</option>
                                     <?php foreach (STATUS as $key=>$value)
                                         {
                                             ?>
@@ -63,7 +63,7 @@
                             <div class="form-group">
                                 <h5 style="text-align: center;">Staff Deployed</h5>
                                 <select class="form-control select2" name="staff_deployed_id" style="width: 100%;">
-                                    <option value="0">Select</option>
+                                    <option value="">Select</option>
                                     <?php foreach ($employee as $value)
                                         {
                                             ?>
@@ -82,6 +82,7 @@
 
                     </div>
                     <button type="submit" class="btn btn-success">Submit</button>
+                    <a href="{{url('/admin/logbook-report')}}" class="btn btn-warning">Back</a>
                 </div>
 
             </div>
@@ -92,3 +93,46 @@
 
 </div>
 @include('admin.common.footer')
+<script>
+    $(document).ready(function () {
+
+        $('#logbook_form').validate({
+            rules: {
+                staff_deployed_id: {
+                    required: true,
+                }, status: {
+                    required: true,
+                }, work_description: {
+                    required: true,
+                }, remark: {
+                    required: true,
+                }
+            },
+            messages: {
+                email: {
+                    required: "Please enter a email address",
+                    email: "Please enter a vaild email address"
+                },
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+                terms: "Please accept our terms"
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+            submitHandler: function () {
+                form.submit();
+            }
+        });
+    });
+</script>

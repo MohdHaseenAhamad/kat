@@ -1,5 +1,9 @@
 @include('admin.common.header')
 @include('admin.common.sidebar')
+<?php
+    use App\Http\Controllers\admin\LabourDeploymentController;
+?>
+
 <style>
     .btn-size
     {
@@ -67,16 +71,16 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->employee_name?></td>
-                                    <td><?=SHIFT[$value->shift]?></td>
-                                    <td><?=$value->helper_id?></td>
-                                    <td><?=$value->mould_no?></td>
-                                    <td><?=$value->side_plate_no?></td>
-                                    <td><?=$value->discharge_time?></td>
-                                    <td><?=$value->flow?></td>
-                                    <td><?=$value->empty_height?></td>
-                                    <td><?=$value->temprator?></td>
-                                    <td><?=$value->remark?></td>
+                                    <td><?=isset($value->employee_name) ?$value->employee_name:''?></td>
+                                    <td><?=isset($value->employee_name) ?SHIFT[$value->shift]:''?></td>
+                                    <td><?=isset($value->employee_name) ?LabourDeploymentController::employeeName($value->helper_id):''?></td>
+                                    <td><?=isset($value->employee_name) ?$value->mould_no:''?></td>
+                                    <td><?=isset($value->employee_name) ?$value->side_plate_no:''?></td>
+                                    <td><?=isset($value->employee_name) ?$value->discharge_time:''?></td>
+                                    <td><?=isset($value->employee_name) ?$value->flow:''?></td>
+                                    <td><?=isset($value->employee_name) ?$value->empty_height:''?></td>
+                                    <td><?=isset($value->employee_name) ?$value->temprator:''?></td>
+                                    <td><?=isset($value->employee_name) ?$value->remark :''?></td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{url('/admin/flow-report/edit/'.$value->id)}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="return deleteIt(this,<?=$i?>)" data-href="{{url('/admin/flow-report/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a></div>

@@ -26,7 +26,7 @@
             <?php
             $redirect = isset($results) ? 'update/'.$results->id: 'save';
             ?>
-            <form method="POST" action="{{url('/admin/cutting-report/'.$redirect)}}">
+            <form id="cutting_form" name="cutting_form" method="POST" action="{{url('/admin/cutting-report/'.$redirect)}}">
                 @csrf
             <div class="card card-default">
                 <div class="card-body">
@@ -35,7 +35,7 @@
                             <div class="form-group " >
                                 <h5 style="text-align: center;">Operator Name</h5>
                                 <select class="form-control select2" name="operater_id" style="width: 100%;">
-                                    <option value="0">Select</option>
+                                    <option value="">Select</option>
                                     <?php foreach ($operator as $opr) { ?>
                                     <option value="<?=$opr->id?>" <?=isset($results) ? ($opr->id==$results->operater_id ? 'selected="selected"':''):'' ?>><?=$opr->name?></option>
                                     <?php } ?>
@@ -48,7 +48,7 @@
                             <div class="form-group">
                                 <h5 style="text-align: center;">Shift</h5>
                                 <select class="form-control select2" name="shift" style="width: 100%;">
-                                    <option value="0">Select</option>
+                                    <option value="">Select</option>
                                     <?php foreach (SHIFT as $key=>$value)
                                     {
                                     ?>
@@ -141,7 +141,8 @@
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-success">Submit</button>&nbsp;&nbsp;
+                        <a href="{{url('/admin/cutting-report')}}" class="btn btn-warning">Back</a>
                     </div>
 
                 </div>
@@ -154,3 +155,72 @@
     <!-- /.content -->
 </div>
 @include('admin.common.footer')
+<script>
+    $(document).ready(function () {
+
+        $('#cutting_form').validate({
+            rules: {
+                other: {
+                    required: true,
+                }, total_reject_block: {
+                    required: true,
+                }, uncutt_blocks: {
+                    required: true,
+                }, scrap_layer: {
+                    required: true,
+                }, less_raising: {
+                    required: true,
+                }, tilting_damage: {
+                    required: true,
+                }, top_layer: {
+                    required: true,
+                }, corner_damage: {
+                    required: true,
+                }, heavy_line: {
+                    required: true,
+                }, chipping: {
+                    required: true,
+                }, cracks: {
+                    required: true,
+                }, size: {
+                    required: true,
+                }, timing: {
+                    required: true,
+                }, side_plate_no: {
+                    required: true,
+                }, batch_number: {
+                    required: true,
+                }, shift: {
+                    required: true,
+                }, operater_id: {
+                    required: true,
+                }
+            },
+            messages: {
+                email: {
+                    required: "Please enter a email address",
+                    email: "Please enter a vaild email address"
+                },
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+                terms: "Please accept our terms"
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+            submitHandler: function () {
+                form.submit();
+            }
+        });
+    });
+</script>

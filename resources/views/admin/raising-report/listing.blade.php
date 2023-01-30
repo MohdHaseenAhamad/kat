@@ -63,14 +63,14 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->employee_name?></td>
-                                    <td><?=SHIFT[$value->shift]?></td>
-                                    <td><?=$value->batch_number?></td>
-                                    <td><?=$value->mould_no?></td>
-                                    <td><?=$value->discharge_time?></td>
-                                    <td><?=$value->hardness?></td>
-                                    <td><?=$value->cutting_time?></td>
-                                    <td><?=$value->remark?></td>
+                                    <td><?=isset($value->employee_name) ?$value->employee_name:''?></td>
+                                    <td><?=isset($value->shift) ?SHIFT[$value->shift]:''?></td>
+                                    <td><?=isset($value->batch_number) ?$value->batch_number:''?></td>
+                                    <td><?=isset($value->mould_no) ?$value->mould_no:''?></td>
+                                    <td><?=isset($value->discharge_time) ?$value->discharge_time:''?></td>
+                                    <td><?=isset($value->hardness) ?$value->hardness:''?></td>
+                                    <td><?=isset($value->cutting_time) ?$value->cutting_time:''?></td>
+                                    <td><?=isset($value->remark) ?$value->remark:''?></td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{url('/admin/raising-report/edit/'.$value->id)}}"  class="btn btn-success">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="return deleteIt(this,<?=$i?>)" data-href="{{url('/admin/raising-report/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a></div>

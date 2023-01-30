@@ -24,7 +24,8 @@ class CuttingControllter extends Controller {
         $data = $this->loadData($request, 'add');
         $last_id = DB::table('cutting')->insertGetId($data);
         if ($last_id > 0) {
-            return redirect('/admin/cutting-report/edit/' . $last_id)->with('success', 'Item created successfully!');
+//            return redirect('/admin/cutting-report/edit/' . $last_id)->with('success', 'Item created successfully!');
+            return redirect('/admin/cutting-report')->with('success', 'Item created successfully!');
         } else {
             return redirect('/admin/cutting-report/add/')->with('warning', 'same error....');
         }

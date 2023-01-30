@@ -30,7 +30,7 @@
             <?php
             $url = isset($result) ? url('superadmin/department/update/'.$result->id):url('superadmin/department/save')
             ?>
-            <form method="POST" action="<?=$url?>">
+            <form id="department_form" name="department_form" method="POST" action="<?=$url?>">
                 @csrf
                 <div class="row">
                     <div class="col-md-3"></div>
@@ -67,3 +67,48 @@
     <!-- /.row -->
 </div>
 @include('superadmin.common.footer')
+<script>
+    $(document).ready(function () {
+        $('#department_form').validate({
+            rules: {
+                name:{
+                    required: true,
+                },
+            },
+            messages: {
+                email: {
+                    required: "Please enter a email address",
+                    email: "Please enter a vaild email address"
+                },
+                phone: {
+                    required: "Please enter a phone address",
+                    minlength: "Your phone must be at least 10 characters long",
+                    maxlength: "Your phone max limit length 10"
+                },
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+            invalidHandler: function (form, validator) {
+                if (!validator.numberOfInvalids())
+                    return;
+                jQuery('html, body').animate({
+                    scrollTop: jQuery(validator.errorList[0].element).offset().top - 150
+                }, "fast");
+            },
+            submitHandler: function (form) {
+                $('.submit_btn').attr('disabled', 'disabled');
+                form.submit();
+            }
+        });
+    });
+
+</script>

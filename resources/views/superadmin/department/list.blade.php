@@ -62,8 +62,8 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?></td>
-                                    <td><?=$res->name?></td>
-                                    <td><?=$res->status == 1 ? 'Active' : 'UnActive'?></td>
+                                    <td><?=isset($res->name) ? $res->name :''?></td>
+                                    <td><?=isset($res->status)? ( $res->status == 1 ? 'Active' : 'UnActive'):''?></td>
                                     <td>
                                         <a href="{{url('superadmin/department/edit/'.$res->id)}}"
                                            class="btn btn-primary">Edit</a>

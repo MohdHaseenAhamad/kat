@@ -38,7 +38,7 @@
                                     <select class="form-control select2 select2-hidden-accessible"
                                             name="store_incharge_id" style="width: 100%;" data-select2-id="1"
                                             tabindex="-1" aria-hidden="true">
-                                        <option value="0">Select</option>
+                                        <option value="">Select</option>
                                         <?php foreach ($store_incharge as $si)
                                         {
                                         ?>
@@ -56,7 +56,7 @@
                                     <select class="form-control select2 select2-hidden-accessible" name="shift"
                                             id="shift" style="width: 100%;" data-select2-id="4" tabindex="-1"
                                             aria-hidden="true">
-                                        <option value="0">Select</option>
+                                        <option value="">Select</option>
                                         <?php foreach (SHIFT as $key=>$value)
                                         {
                                         ?>
@@ -156,7 +156,8 @@
 
                             </div>
                             <button type="submit" id="form_submit" class="btn btn-success">Submit
-                            </button>
+                            </button>&nbsp;&nbsp;
+                            <a href="{{url('/admin/rf-feding')}}" class="btn btn-warning">Back</a>
                         </div>
 
                     </div>
@@ -171,6 +172,71 @@
     <!-- /.content -->
 </div>
 @include('admin.common.footer')
+<script>
+    $(document).ready(function () {
+        // $.validator.setDefaults({
+        //     submitHandler: function () {
+        //         alert( "Form successful submitted!" );
+        //     }
+        // });
+        $('#rf_feding').validate({
+            rules: {
+                store_incharge_id: {
+                    required: true,
+                },fly_ash_bulker: {
+                    required: true,
+                },shift: {
+                    required: true,
+                }, fly_ash_dumper: {
+                    required: true,
+                }, cement_bulker: {
+                    required: true,
+                }, cement_bag: {
+                    required: true,
+                }, gypsum: {
+                    required: true,
+                }, lime_bulker: {
+                    required: true,
+                }, lime_bag: {
+                    required: true,
+                }, aluminium: {
+                    required: true,
+                }, husk: {
+                    required: true,
+                }, soluble: {
+                    required: true,
+                }, moud_oil: {
+                    required: true,
+                },
+            },
+            messages: {
+                email: {
+                    required: "Please enter a email address",
+                    email: "Please enter a vaild email address"
+                },
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+                terms: "Please accept our terms"
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+            submitHandler: function () {
+                form.submit();
+            }
+        });
+    });
+</script>
 {{--<script>--}}
 {{--$(document).ready(function () {--}}
 {{--$("#form_submit").on('click',function () {--}}

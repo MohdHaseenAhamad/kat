@@ -26,7 +26,8 @@ class DepartmentController extends Controller
         $last_id=DB::table('department')->insertGetId($retData);
         if($last_id >0)
         {
-            return redirect('/superadmin/department/edit/'.$last_id)->with('success','New Department Register successfully!');
+//            return redirect('/superadmin/department/edit/'.$last_id)->with('success','New Department Register successfully!');
+            return redirect('/superadmin/department')->with('success','New Department Register successfully!');
         }
     }
     public function edit($id)
@@ -60,7 +61,8 @@ class DepartmentController extends Controller
        {
            $data['created_at']=date( 'Y-m-d H:i:s');
        }
-       else{
+       else
+           {
            $data['updated_at']=date( 'Y-m-d H:i:s');
        }
        return $data;

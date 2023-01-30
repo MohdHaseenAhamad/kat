@@ -1,5 +1,8 @@
 @include('admin.common.header')
 @include('admin.common.sidebar')
+<?php
+    use App\Http\Controllers\admin\LabourDeploymentController;
+?>
 <style>
     .btn-size {
 
@@ -61,11 +64,11 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=SHIFT[$value->shift]?></td>
-                                    <td><?=$value->labour_id?></td>
-                                    <td><?=$value->area_of_work?></td>
-                                    <td><?=$value->contractor_id?></td>
-                                    <td><?=$value->operater_id?></td>
+                                    <td><?=isset($value->shift) ?SHIFT[$value->shift]:''?></td>
+                                    <td><?=isset($value->labour_id) ? LabourDeploymentController::employeeName($value->labour_id):''?></td>
+                                    <td><?=isset($value->area_of_work) ?$value->area_of_work:''?></td>
+                                    <td><?=isset($value->contractor_id) ? LabourDeploymentController::employeeName($value->contractor_id):''?></td>
+                                    <td><?=isset($value->operater_id) ? LabourDeploymentController::employeeName($value->operater_id):''?></td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{url('/admin/labour-report/edit/'.$value->id)}}"

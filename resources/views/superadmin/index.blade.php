@@ -14,7 +14,14 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1 class="m-0 text-dark">Dashboard</h1>
-                    <h3><b>If You are Update Website and Create New Website Please Contact <a href="tel:<?=CONTACT_NUMBER?>"><?=CONTACT_NUMBER?></a> <span class="fas fa-phone"></span></b> </h3>
+                    <?php if(true): ?>
+                    <h3>
+                        <b>If You are Update Website and Create New Website Please Contact
+                            <a href="tel:<?=CONTACT_NUMBER?>"><?=CONTACT_NUMBER?></a>
+                            <span class="fas fa-phone"></span>
+                        </b>
+                    </h3>
+                    <?php endif; ?>
                 </div><!-- /.col -->
                 <!--<div class="col-sm-6">
                   <ol class="breadcrumb float-sm-right">

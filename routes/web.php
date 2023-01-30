@@ -25,7 +25,12 @@ use App\Http\Controllers\admin\LabourDeploymentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/updateapp', function()
+{
+    exec('composer dump-autoload'); // if you're not planning to access it through a route.
 
+    echo 'dump-autoload complete';
+});
 Route::get('/',[LoginController::class,'index']);
 Route::get('/logout',[LoginController::class,'logout']);
 Route::post('/send-otp',[LoginController::class,'sendOtp']);
@@ -113,6 +118,7 @@ Route::get('/admin/labour-report/add',[LabourDeploymentController::class,'add'])
 Route::get('/admin/labour-report/edit/{id}',[LabourDeploymentController::class,'edit'])->middleware('admin');
 Route::post('/admin/labour-report/update/{id}',[LabourDeploymentController::class,'update'])->middleware('admin');
 Route::get('/admin/labour-report/delete/{id}',[LabourDeploymentController::class,'delete'])->middleware('admin');
+Route::get('/admin/labour-report/employeeName/{id}',[LabourDeploymentController::class,'employeeName'])->middleware('admin');
 
 //Flow LogBook Report Route
 Route::get('/admin/logbook-report',[LogbookController::class,'index'])->middleware('admin');

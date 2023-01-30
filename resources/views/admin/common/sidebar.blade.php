@@ -90,6 +90,20 @@
                         </p>
                     </a>
                 </li>
+                <?php if(session()->has('superadmin'))
+                    {
+                        ?>
+                <li class="nav-item ">
+                    <a href="{{url('/superadmin')}}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Superadmin Dashboard
+                        </p>
+                    </a>
+                </li>
+<?php
+                    }?>
+
                 <li class="nav-item ">
                     <a href="{{url('/logout')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>

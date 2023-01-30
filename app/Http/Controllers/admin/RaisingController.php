@@ -27,7 +27,8 @@ class RaisingController extends Controller
         if($last_id > 0)
         {
 
-            return redirect('/admin/raising-report/edit/'.$last_id)->with('success','Item created successfully!');
+//            return redirect('/admin/raising-report/edit/'.$last_id)->with('success','Item created successfully!');
+            return redirect('/admin/raising-report')->with('success','Item created successfully!');
         }
         else
         {

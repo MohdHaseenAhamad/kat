@@ -76,20 +76,20 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=AUTOCLAVE_NUMBER[$value->autoclave_number]?></td>
-                                    <td><?=SHIFT[$value->shift]?></td>
-                                    <td><?=$value->employee_name?></td>
-                                    <td><?=CASTING_NUMBER[$value->casting_number]?></td>
-                                    <td><?=$value->material_receipt?></td>
-                                    <td><?=$value->door_closing?></td>
-                                    <td><?=$value->vacuum_time?></td>
-                                    <td><?=$value->rising_time?></td>
-                                    <td><?=$value->pressure?></td>
-                                    <td><?=$value->temp?></td>
-                                    <td><?=$value->door_opening?></td>
-                                    <td><?=$value->stream_transfer?></td>
-                                    <td><?=$value->transfer_to?></td>
-                                    <td><?=$value->time_stream_transfer?></td>
+                                    <td><?=isset($value->autoclave_number) ? AUTOCLAVE_NUMBER[$value->autoclave_number] :''?></td>
+                                    <td><?=isset($value->shift) ? SHIFT[$value->shift] :''?></td>
+                                    <td><?=isset($value->employee_name) ?$value->employee_name :''?></td>
+                                    <td><?=isset($value->casting_number) ?CASTING_NUMBER[$value->casting_number] :''?></td>
+                                    <td><?=isset($value->material_receipt) ?$value->material_receipt :''?></td>
+                                    <td><?=isset($value->door_closing) ?$value->door_closing :''?></td>
+                                    <td><?=isset($value->vacuum_time) ?$value->vacuum_time :''?></td>
+                                    <td><?=isset($value->rising_time) ?$value->rising_time :''?></td>
+                                    <td><?=isset($value->pressure) ?$value->pressure :''?></td>
+                                    <td><?=isset($value->temp) ?$value->temp :''?></td>
+                                    <td><?=isset($value->door_opening) ?$value->door_opening :''?></td>
+                                    <td><?=isset($value->stream_transfer) ?$value->stream_transfer :''?></td>
+                                    <td><?=isset($value->transfer_to) ?$value->transfer_to :''?></td>
+                                    <td><?=isset($value->time_stream_transfer) ?$value->time_stream_transfer :''?></td>
                                     <td>
                                         <div class="btn-group">
                                             <a  href="{{url('/admin/autoclave-report/edit/'.$value->id)}}"  class="btn btn-info btn-sm">Edit</a>&nbsp&nbsp;

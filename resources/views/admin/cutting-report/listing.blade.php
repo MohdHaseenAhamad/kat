@@ -74,23 +74,23 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->employee_name?></td>
-                                    <td><?=SHIFT[$value->shift]?></td>
-                                    <td><?=$value->batch_number?></td>
-                                    <td><?=$value->side_plate_no?></td>
-                                    <td><?=$value->timing?></td>
-                                    <td><?=$value->size?></td>
-                                    <td><?=$value->cracks?></td>
-                                    <td><?=$value->chipping?></td>
-                                    <td><?=$value->heavy_line?></td>
-                                    <td><?=$value->corner_damage?></td>
-                                    <td><?=$value->top_layer?></td>
-                                    <td><?=$value->tilting_damage?></td>
-                                    <td><?=$value->less_raising?></td>
-                                    <td><?=$value->scrap_layer?></td>
-                                    <td><?=$value->uncutt_blocks?></td>
-                                    <td><?=$value->total_reject_block?></td>
-                                    <td><?=$value->other?></td>
+                                    <td><?=isset($value->employee_name) ?$value->employee_name: ''?></td>
+                                    <td><?=isset($value->shift) ?SHIFT[$value->shift]: ''?></td>
+                                    <td><?=isset($value->batch_number) ?$value->batch_number: ''?></td>
+                                    <td><?=isset($value->side_plate_no) ?$value->side_plate_no: ''?></td>
+                                    <td><?=isset($value->timing) ?$value->timing: ''?></td>
+                                    <td><?=isset($value->size) ?$value->size: ''?></td>
+                                    <td><?=isset($value->cracks) ?$value->cracks: ''?></td>
+                                    <td><?=isset($value->chipping) ?$value->chipping: ''?></td>
+                                    <td><?=isset($value->heavy_line) ?$value->heavy_line: ''?></td>
+                                    <td><?=isset($value->corner_damage) ?$value->corner_damage: ''?></td>
+                                    <td><?=isset($value->top_layer) ?$value->top_layer: ''?></td>
+                                    <td><?=isset($value->tilting_damage) ?$value->tilting_damage: ''?></td>
+                                    <td><?=isset($value->less_raising) ?$value->less_raising: ''?></td>
+                                    <td><?=isset($value->scrap_layer) ?$value->scrap_layer: ''?></td>
+                                    <td><?=isset($value->uncutt_blocks) ?$value->uncutt_blocks: ''?></td>
+                                    <td><?=isset($value->total_reject_block) ?$value->total_reject_block: ''?></td>
+                                    <td><?=isset($value->other) ? $value->other : ''?></td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{url('/admin/cutting-report/edit/'.$value->id)}}"

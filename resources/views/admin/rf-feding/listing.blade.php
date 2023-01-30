@@ -73,19 +73,19 @@
                                         ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->employee_name?></td>
-                                    <td><?=SHIFT[$value->shift]?></td>
-                                    <td><?=$value->fly_ash_bulker?></td>
-                                    <td><?=$value->fly_ash_dumper?></td>
-                                    <td><?=$value->cement_bulker?></td>
-                                    <td><?=$value->cement_bag?></td>
-                                    <td><?=$value->gypsum?></td>
-                                    <td><?=$value->lime_bulker?></td>
-                                    <td><?=$value->lime_bag?></td>
-                                    <td><?=$value->aluminium?></td>
-                                    <td><?=$value->husk?></td>
-                                    <td><?=$value->soluble?></td>
-                                    <td><?=$value->moud_oil?></td>
+                                    <td><?=isset($value->employee_name) ?$value->employee_name:''?></td>
+                                    <td><?=isset($value->shift) ?SHIFT[$value->shift]:''?></td>
+                                    <td><?=isset($value->fly_ash_bulker) ?$value->fly_ash_bulker:''?></td>
+                                    <td><?=isset($value->fly_ash_dumper) ?$value->fly_ash_dumper:''?></td>
+                                    <td><?=isset($value->cement_bulker) ?$value->cement_bulker:''?></td>
+                                    <td><?=isset($value->cement_bag) ?$value->cement_bag:''?></td>
+                                    <td><?=isset($value->gypsum) ?$value->gypsum:''?></td>
+                                    <td><?=isset($value->lime_bulker) ?$value->lime_bulker:''?></td>
+                                    <td><?=isset($value->lime_bag) ?$value->lime_bag:''?></td>
+                                    <td><?=isset($value->aluminium) ?$value->aluminium:''?></td>
+                                    <td><?=isset($value->husk) ?$value->husk:''?></td>
+                                    <td><?=isset($value->soluble) ?$value->soluble:''?></td>
+                                    <td><?=isset($value->moud_oil) ?$value->moud_oil:''?></td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{url('/admin/rf-feding/edit/'.$value->id)}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="return deleteIt(this,<?=$i?>)" data-href="{{url('/admin/rf-feding/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a></div>

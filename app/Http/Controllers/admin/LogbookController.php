@@ -25,7 +25,8 @@ class LogbookController extends Controller
         $last_id=DB::table('logbook')->insertGetId($data);
         if($last_id > 0)
         {
-            return redirect('/admin/logbook-report/edit/'.$last_id)->with('success','Item created successfully!');
+//            return redirect('/admin/logbook-report/edit/'.$last_id)->with('success','Item created successfully!');
+            return redirect('/admin/logbook-report')->with('success','Item created successfully!');
         }
         else
         {

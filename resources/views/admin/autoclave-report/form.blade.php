@@ -25,7 +25,7 @@
             <?php
             $redirect = isset($results) ? 'update/'.$results->id: 'save';
             ?>
-            <form method="POST" action="{{url('admin/autoclave-report/'.$redirect)}}">
+            <form id="autoclave_form" name="autoclave_form" method="POST" action="{{url('admin/autoclave-report/'.$redirect)}}">
                 @csrf
             <div class="card card-default">
                 <div class="card-body">
@@ -34,7 +34,7 @@
                             <div class="form-group " >
                                 <h5 style="text-align: center;">Autoclave Number</h5>
                                 <select class="form-control select2" name="autoclave_number" style="width: 100%;">
-                                    <option value="0">Select</option>
+                                    <option value="">Select</option>
                                     <?php foreach (AUTOCLAVE_NUMBER as $key=>$value)
                                         {
                                             ?>
@@ -50,7 +50,7 @@
                             <div class="form-group " >
                                 <h5 style="text-align: center;">Opt Name</h5>
                                 <select class="form-control select2" name="operater_id" style="width: 100%;">
-                                    <option value="0">Select</option>
+                                    <option value="">Select</option>
                                     <?php foreach ($operator as $opr) { ?>
                                     <option value="<?=$opr->id?>" <?=isset($results) ? ($opr->id==$results->operater_id ? 'selected="selected"':''):'' ?>><?=$opr->name?></option>
                                     <?php } ?>
@@ -63,7 +63,7 @@
                             <div class="form-group">
                                 <h5 style="text-align: center;">Shift</h5>
                                 <select class="form-control select2" name="shift" style="width: 100%;">
-                                    <option selected="selected">Select</option>
+                                    <option value="">Select</option>
                                     <?php foreach (SHIFT as $key=>$value)
                                         {
                                             ?>
@@ -88,7 +88,7 @@
                             <div class="form-group " >
                                 <h5 style="text-align: center;">Casting Number</h5>
                                 <select class="form-control select2" name="casting_number" style="width: 100%;">
-                                    <option selected="selected" value="0">Select</option>
+                                    <option value="">Select</option>
                                     <?php foreach (CASTING_NUMBER as $key=>$value)
                                     {
                                     ?>
@@ -137,7 +137,7 @@
                             <div class="form-group">
                                 <h5 style="text-align: center;">Stream Transfer</h5>
                                 <select class="form-control select2" name="stream_transfer" style="width: 100%;">
-                                    <option value="0">Select</option>
+                                    <option value="">Select</option>
                                     <?php foreach (STREET_TRANSFER as $key=>$value)
                                     {
                                     ?>
@@ -151,7 +151,7 @@
                             <div class="form-group">
                                 <h5 style="text-align: center;">Transfer To</h5>
                                 <select class="form-control select2" name="transfer_to" style="width: 100%;">
-                                    <option value="0">Select</option>
+                                    <option value="">Select</option>
                                     <?php foreach (TRANSFER_TO as $key=>$value)
                                     {
                                     ?>
@@ -169,7 +169,7 @@
 
                     </div>
 
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit</button>&nbsp;&nbsp;
                     <a href="{{url('/admin/autoclave-report')}}" class="btn btn-warning">Back</a>
                 </div>
 
@@ -182,3 +182,74 @@
         <!-- /.row -->
 </div>
 @include('admin.common.footer')
+<script>
+    $(document).ready(function () {
+
+        $('#autoclave_form').validate({
+            rules: {
+                autoclave_number: {
+                    required: true,
+                }, operater_id: {
+                    required: true,
+                }, shift: {
+                    required: true,
+                }, casting_number: {
+                    required: true,
+                }, material_receipt: {
+                    required: true,
+                }, door_closing: {
+                    required: true,
+                }, vacuum_time: {
+                    required: true,
+                }, rising_time: {
+                    required: true,
+                }, pressure: {
+                    required: true,
+                }, temp: {
+                    required: true,
+                }, door_opening: {
+                    required: true,
+                }, stream_transfer: {
+                    required: true,
+                }, flow_and_height: {
+                    required: true,
+                }, slide_plate: {
+                    required: true,
+                }, shift: {
+                    required: true,
+                }, operater_id: {
+                    required: true,
+                }, transfer_to: {
+                    required: true,
+                }, time_stream_transfer: {
+                    required: true,
+                }
+            },
+            messages: {
+                email: {
+                    required: "Please enter a email address",
+                    email: "Please enter a vaild email address"
+                },
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+                terms: "Please accept our terms"
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+            submitHandler: function () {
+                form.submit();
+            }
+        });
+    });
+</script>

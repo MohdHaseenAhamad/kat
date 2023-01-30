@@ -31,7 +31,7 @@
             <?php
             $redirect = isset($results) ? 'update/'.$results->id : 'save';
             ?>
-            <form  method="POST" action="{{url('/admin/batching-report/'.$redirect)}}">
+            <form id="batching_form" name="batching_form"  method="POST" action="{{url('/admin/batching-report/'.$redirect)}}">
                 @csrf
             <div class="card card-default">
 
@@ -41,7 +41,7 @@
                             <div class="form-group " >
                                 <h5 style="text-align: center;">Operator Name</h5>
                                 <select class="form-control select2" name="operater_id" style="width: 100%;">
-                                    <option selected="selected">Select</option>
+                                    <option value="">Select</option>
                                     <?php foreach ($operator as $opr) { ?>
                                     <option value="<?=$opr->id?>" <?=isset($results) ? ($opr->id==$results->operater_id ? 'selected="selected"':''):'' ?>><?=$opr->name?></option>
                                     <?php } ?>
@@ -54,7 +54,7 @@
                             <div class="form-group">
                                 <h5 style="text-align: center;">Shift</h5>
                                 <select class="form-control select2" name="shift" style="width: 100%;">
-                                    <option value="0">Select</option>
+                                    <option value="">Select</option>
                                     <?php foreach (SHIFT as $key=>$value)
                                     {
                                     ?>
@@ -105,7 +105,7 @@
                             </div>
                             <div class="form-group">
                                 <h5>Lime</h5>
-                                <input type="text" class="form-control" name="lime" value ="<?=isset($results) ? $results->cement:'' ?>" placeholder="Enter ...">
+                                <input type="text" class="form-control" name="lime" value ="<?=isset($results) ? $results->lime:'' ?>" placeholder="Enter ...">
                             </div>
                             <div class="form-group">
                                 <h5>Gypsum</h5>
@@ -137,7 +137,8 @@
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-success">Submit</button>&nbsp;&nbsp;
+                        <a href="{{url('/admin/batching-report')}}" class="btn btn-warning">Back</a>
                     </div>
 
                 </div>
@@ -150,3 +151,70 @@
     <!-- /.content -->
 </div>
 @include('admin.common.footer')
+<script>
+    $(document).ready(function () {
+
+        $('#batching_form').validate({
+            rules: {
+                operater_id: {
+                    required: true,
+                }, mixing_time: {
+                    required: true,
+                }, discharge_time: {
+                    required: true,
+                }, discharge_temp: {
+                    required: true,
+                }, s_oil: {
+                    required: true,
+                }, extra_water: {
+                    required: true,
+                }, aluminium_powder: {
+                    required: true,
+                }, gypsum: {
+                    required: true,
+                }, lime: {
+                    required: true,
+                }, cement: {
+                    required: true,
+                }, r_slurry: {
+                    required: true,
+                }, f_slurry: {
+                    required: true,
+                }, flow_and_height: {
+                    required: true,
+                }, slide_plate: {
+                    required: true,
+                }, shift: {
+                    required: true,
+                }, operater_id: {
+                    required: true,
+                }
+            },
+            messages: {
+                email: {
+                    required: "Please enter a email address",
+                    email: "Please enter a vaild email address"
+                },
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+                terms: "Please accept our terms"
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+            submitHandler: function () {
+                form.submit();
+            }
+        });
+    });
+</script>

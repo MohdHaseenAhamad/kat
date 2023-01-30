@@ -26,7 +26,8 @@ class EmployeeController extends Controller
         $last_id = DB::table('employee')->insertGetId($retData);
         if($last_id > 0)
         {
-            return redirect('/superadmin/employee/edit/'.$last_id)->with('success','New Employee Register successfully!');
+//            return redirect('/superadmin/employee/edit/'.$last_id)->with('success','New Employee Register successfully!');
+            return redirect('/superadmin/employee')->with('success','New Employee Register successfully!');
         }
 
     }

@@ -27,7 +27,8 @@ class RfController extends Controller
         $last_id = DB::table('rf_feding')->insertGetId($data);
         if($last_id > 0)
         {
-            return redirect('/admin/rf-feding/edit/'.$last_id)->with('success','Item created successfully!');
+//            return redirect('/admin/rf-feding/edit/'.$last_id)->with('success','Item created successfully!');
+            return redirect('/admin/rf-feding')->with('success','Item created successfully!');
         }else
         {
             return redirect('/admin/rf-feding/add/')->with('warning','same error....');

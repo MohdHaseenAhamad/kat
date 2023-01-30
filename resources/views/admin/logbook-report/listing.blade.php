@@ -61,10 +61,10 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->employee_name?></td>
-                                    <td><?=STATUS[$value->status]?></td>
-                                    <td><?=$value->remark?></td>
-                                    <td><?=$value->work_description?></td>
+                                    <td><?=isset($value->employee_name) ?$value->employee_name:''?></td>
+                                    <td><?=isset($value->status) ?STATUS[$value->status]:''?></td>
+                                    <td><?=isset($value->remark) ?$value->remark:''?></td>
+                                    <td><?=isset($value->work_description) ?$value->work_description:''?></td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{url('/admin/logbook-report/edit/'.$value->id)}}"

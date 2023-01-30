@@ -77,21 +77,21 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?>.</td>
-                                    <td><?=$value->employee_name?></td>
-                                    <td><?=SHIFT[$value->shift]?></td>
-                                    <td><?=$value->slide_plate?></td>
-                                    <td><?=$value->flow_and_height?></td>
-                                    <td><?=$value->f_slurry?></td>
-                                    <td><?=$value->r_slurry?></td>
-                                    <td><?=$value->cement?></td>
-                                    <td><?=$value->lime?></td>
-                                    <td><?=$value->gypsum?></td>
-                                    <td><?=$value->aluminium_powder?></td>
-                                    <td><?=$value->extra_water?></td>
-                                    <td><?=$value->s_oil?></td>
-                                    <td><?=$value->discharge_temp?></td>
-                                    <td><?=$value->discharge_time?></td>
-                                    <td><?=$value->mixing_time?></td>
+                                    <td><?=isset($value->employee_name) ? $value->employee_name: ''?></td>
+                                    <td><?=isset($value->shift) ?SHIFT[$value->shift]: ''?></td>
+                                    <td><?=isset($value->slide_plate) ?$value->slide_plate: ''?></td>
+                                    <td><?=isset($value->flow_and_height) ?$value->flow_and_height: ''?></td>
+                                    <td><?=isset($value->f_slurry) ?$value->f_slurry: ''?></td>
+                                    <td><?=isset($value->r_slurry) ?$value->r_slurry: ''?></td>
+                                    <td><?=isset($value->cement) ?$value->cement: ''?></td>
+                                    <td><?=isset($value->lime) ?$value->lime: ''?></td>
+                                    <td><?=isset($value->gypsum) ?$value->gypsum: ''?></td>
+                                    <td><?=isset($value->aluminium_powder) ?$value->aluminium_powder: ''?></td>
+                                    <td><?=isset($value->extra_water) ?$value->extra_water: ''?></td>
+                                    <td><?=isset($value->s_oil) ?$value->s_oil: ''?></td>
+                                    <td><?=isset($value->discharge_temp) ?$value->discharge_temp: ''?></td>
+                                    <td><?=isset($value->discharge_time) ?$value->discharge_time: ''?></td>
+                                    <td><?=isset($value->mixing_time) ?$value->mixing_time : ''?></td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{url('/admin/batching-report/edit/'.$value->id)}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="return deleteIt(this,<?=$i?>)" data-href="{{url('/admin/batching-report/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a></div>

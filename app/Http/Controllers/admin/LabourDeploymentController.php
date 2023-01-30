@@ -24,7 +24,8 @@ class LabourDeploymentController extends Controller
         $last_id=DB::table('labour')->insertGetId($data);
         if($last_id >0)
         {
-            return redirect('/admin/labour-report/edit/'.$last_id)->with('success','Item created successfully!');
+//            return redirect('/admin/labour-report/edit/'.$last_id)->with('success','Item created successfully!');
+            return redirect('/admin/labour-report')->with('success','Item created successfully!');
         }
         else
         {
@@ -56,7 +57,8 @@ class LabourDeploymentController extends Controller
             if($mode=='add')
             {
                 $data['created_at'] = date(DATE_FORMAT);
-            }else{
+            } else
+                {
                 $data['updated_at'] = date(DATE_FORMAT);
             }
             return $data;
@@ -81,4 +83,13 @@ class LabourDeploymentController extends Controller
             return redirect('/admin/labour-report')->with('success','Item delete successfully!');
         }
     }
+    public function employeeName($id)
+    {
+        $results=DB::table('employee')
+            ->select('name')
+            ->where('id',$id)
+            ->get();
+        return $results[0]->name;
+    }
+
 }

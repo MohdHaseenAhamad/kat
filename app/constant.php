@@ -14,3 +14,4 @@ define('SHIFT',array('1'=>'8:00 AM to 4:00 PM','2'=>'9:00 AM to 6:00 PM','3'=>'1
 define('STATUS',array('1'=>'Finish','2'=>'Working'));
 define('CONTACT_NUMBER','7309589697');
 
+

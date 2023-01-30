@@ -70,18 +70,18 @@
                                 ?>
                                 <tr>
                                     <td><?=$i?></td>
-                                    <td><?=$res->dep_name?></td>
-                                    <td><?=$res->name?></td>
-                                    <td><?=$res->email?></td>
-                                    <td><?=$res->phone?></td>
-                                    <td><?=$res->status == 1 ? 'Active' : 'UnActive'?></td>
-                                    <td><?=date("d M, Y h:i A", strtotime($res->created_at))?></td>
+                                    <td><?=isset($res->dep_name)?$res->dep_name :''?></td>
+                                    <td><?=isset($res->name)?$res->name:''?></td>
+                                    <td><?=isset($res->email)?$res->email:''?></td>
+                                    <td><?=isset($res->phone)?$res->phone:''?></td>
+                                    <td><?=isset($res->status)? ($res->status == 1 ? 'Active' : 'UnActive'):''?></td>
+                                    <td><?=isset($res->created_at)? date("d M, Y h:i A", strtotime($res->created_at)):''?></td>
                                     <td>
                                         <a href="{{url('superadmin/employee/edit/'.$res->id)}}"
                                            class="btn btn-primary">Edit</a>
-                                        <a href="javascript:void(0)" onclick="return deleteIt(this,'<?=$res->name?>')"
+                                        <a href="javascript:void(0)" onclick="return deleteIt(this,'<?=isset($res->name)?$res->name:''?>')"
                                            data-href="{{url('superadmin/employee/delete/'.$res->id)}}"
-                                           data-msg="Are you sure? <br> You want to delete <?=$res->name?>"
+                                           data-msg="Are you sure? <br> You want to delete <?=isset($res->name)?$res->name:''?>"
                                            class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>

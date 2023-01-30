@@ -26,7 +26,8 @@ class BatchingController extends Controller
         $last_id=DB::table('batching')->insertGetId($data);
         if($last_id > 0)
         {
-            return redirect('/admin/batching-report/edit/'.$last_id)->with('success','Item created successfully!');
+//            return redirect('/admin/batching-report/edit/'.$last_id)->with('success','Item created successfully!');
+            return redirect('/admin/batching-report')->with('success','Item created successfully!');
         }
         else
         {
