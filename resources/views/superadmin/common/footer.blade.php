@@ -24,6 +24,7 @@
     $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
+
 <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('assets/plugins/chart.js/Chart.min.js')}}"></script>
@@ -51,6 +52,10 @@
 <script src="{{asset('assets/dist/js/demo.js')}}"></script>
 <script src="{{asset('assets/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
 <script src="{{asset('assets/plugins/jquery-validation/additional-methods.min.js')}}"></script>
+<script src="{{asset('assets/plugins/clock-js/script.adjustment.js')}}"></script>
+<script src="{{asset('assets/plugins/clock-js/script.clock.js')}}"></script>
+<script src="{{asset('assets/plugins/clock-js/script.main.js')}}"></script>
+
 <script>
     $(document).ready(function () {
         $(".add_id").click(function () {

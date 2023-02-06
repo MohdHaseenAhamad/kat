@@ -1,6 +1,11 @@
 <?php
 
 define('DATE_FORMAT','Y-m-d H:i:s');
+
+define('HOVERS','H');
+define('MINUTES','i');
+define('SECONDS','s');
+define('DATE_FORMAT_ONLY_DATE','d M, Y');
 define('OPERATOR_ID',2);
 define('STORE_INCHARGE_ID',1);
 define('HELPER_ID',3);

@@ -25,13 +25,19 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/daterangepicker/daterangepicker.css')}}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.css')}}">
+
     <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <script href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"></script>
     <style>
        .modal-dialog {
             top: 40%;
             margin-top: 0;
         }
+       #clockContainer {
+           text-align: left;
+           background-color: darkgrey;
+           color: brown;
+       }
     </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -50,12 +56,20 @@
             <div class="input-group input-group-sm">
                 <!--<input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">-->
                 <div class="input-group-append">
-                    <span class="brand-text">KATARIA ECOTECH</span>
+                    <span class="brand-text">K-E</span>
                     <!--  <button class="btn btn-navbar" type="submit">
                         <i class="fas fa-search"></i>
                       </button>-->
                 </div>
+
             </div>
         </form>
+        <ul class="navbar-nav ml-auto">
+            <!-- Messages Dropdown Menu -->
+<?=date(DATE_FORMAT_ONLY_DATE)?>&nbsp;
+            <div id="clockContainer" class="clockContainer-theme-light">
+                <div id="clockTime" class="clockTime-theme-day">00:00:00</div>
+            </div>
+        </ul>
 
     </nav>

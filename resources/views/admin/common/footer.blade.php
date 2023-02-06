@@ -23,6 +23,9 @@
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
+<script src="{{asset('assets/plugins/clock-js/script.adjustment.js')}}"></script>
+<script src="{{asset('assets/plugins/clock-js/script.clock.js')}}"></script>
+<script src="{{asset('assets/plugins/clock-js/script.main.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
