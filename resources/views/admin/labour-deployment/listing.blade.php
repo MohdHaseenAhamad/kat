@@ -51,6 +51,12 @@
                                     <th>Area Of Work</th>
                                     <th>Contractor Name</th>
                                     <th>Reporting Operator Name</th>
+                                    <?php if (session()->has('superadmin')) {
+                                    ?>
+                                    <th><?=CREATE_DATE?></th>
+                                    <th><?=MODIFIED_DATE?></th>
+                                    <?php }?>
+
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -69,6 +75,12 @@
                                     <td><?=isset($value->area_of_work) ?$value->area_of_work:''?></td>
                                     <td><?=isset($value->contractor_id) ? LabourDeploymentController::employeeName($value->contractor_id):''?></td>
                                     <td><?=isset($value->operater_id) ? LabourDeploymentController::employeeName($value->operater_id):''?></td>
+                                    <?php if (session()->has('superadmin')) {
+                                    ?>
+                                    <td><?=isset($value->created_at) ? $value->created_at : ''?></td>
+                                    <td><?=isset($value->updated_at) ? $value->updated_at : ''?></td>
+                                    <?php } ?>
+
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{url('/admin/labour-report/edit/'.$value->id)}}"

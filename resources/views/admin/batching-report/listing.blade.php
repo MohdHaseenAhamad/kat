@@ -64,6 +64,12 @@
                                     <th>Discharge Temp.</th>
                                     <th>Discharge Time</th>
                                     <th>Mixing Time.</th>
+                                    <?php if (session()->has('superadmin')) {
+                                    ?>
+                                    <th><?=CREATE_DATE?></th>
+                                    <th><?=MODIFIED_DATE?></th>
+                                    <?php }?>
+
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -92,6 +98,12 @@
                                     <td><?=isset($value->discharge_temp) ?$value->discharge_temp: ''?></td>
                                     <td><?=isset($value->discharge_time) ?$value->discharge_time: ''?></td>
                                     <td><?=isset($value->mixing_time) ?$value->mixing_time : ''?></td>
+                                    <?php if (session()->has('superadmin')) {
+                                    ?>
+                                    <td><?=isset($value->created_at) ? $value->created_at : ''?></td>
+                                    <td><?=isset($value->updated_at) ? $value->updated_at : ''?></td>
+                                    <?php } ?>
+
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{url('/admin/batching-report/edit/'.$value->id)}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="return deleteIt(this,<?=$i?>)" data-href="{{url('/admin/batching-report/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a></div>

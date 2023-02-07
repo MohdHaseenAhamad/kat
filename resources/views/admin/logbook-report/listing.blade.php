@@ -48,6 +48,12 @@
                                     <th>Status</th>
                                     <th>Remark</th>
                                     <th>Work Description</th>
+                                    <?php if (session()->has('superadmin')) {
+                                    ?>
+                                    <th><?=CREATE_DATE?></th>
+                                    <th><?=MODIFIED_DATE?></th>
+                                    <?php }?>
+
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -65,6 +71,13 @@
                                     <td><?=isset($value->status) ?STATUS[$value->status]:''?></td>
                                     <td><?=isset($value->remark) ?$value->remark:''?></td>
                                     <td><?=isset($value->work_description) ?$value->work_description:''?></td>
+
+                                    <?php if (session()->has('superadmin')) {
+                                    ?>
+                                    <td><?=isset($value->created_at) ? $value->created_at : ''?></td>
+                                    <td><?=isset($value->updated_at) ? $value->updated_at : ''?></td>
+                                    <?php } ?>
+
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{url('/admin/logbook-report/edit/'.$value->id)}}"

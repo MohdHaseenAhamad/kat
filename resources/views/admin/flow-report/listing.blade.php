@@ -57,6 +57,12 @@
                                     <th>Empty Height</th>
                                     <th>Temprator</th>
                                     <th>Remark</th>
+                                    <?php if (session()->has('superadmin')) {
+                                    ?>
+                                    <th><?=CREATE_DATE?></th>
+                                    <th><?=MODIFIED_DATE?></th>
+                                    <?php }?>
+
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -81,6 +87,13 @@
                                     <td><?=isset($value->employee_name) ?$value->empty_height:''?></td>
                                     <td><?=isset($value->employee_name) ?$value->temprator:''?></td>
                                     <td><?=isset($value->employee_name) ?$value->remark :''?></td>
+                                    <?php if (session()->has('superadmin')) {
+                                    ?>
+                                    <td><?=isset($value->created_at) ? $value->created_at : ''?></td>
+                                    <td><?=isset($value->updated_at) ? $value->updated_at : ''?></td>
+                                    <?php } ?>
+
+
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{url('/admin/flow-report/edit/'.$value->id)}}"  class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="return deleteIt(this,<?=$i?>)" data-href="{{url('/admin/flow-report/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a></div>

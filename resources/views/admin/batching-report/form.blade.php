@@ -129,7 +129,7 @@
                             </div>
                             <div class="form-group">
                                 <h5>Discharge Time</h5>
-                                <input type="text" class="form-control" name="discharge_time" value ="<?=isset($results) ? $results->discharge_time:'' ?>" placeholder="Enter ...">
+                                <input type="text" class="form-control" name="discharge_time" value ="<?=isset($results) ? $results->discharge_time: date(DATE_FORMAT) ?>" placeholder="Enter ..." readonly>
                             </div>
                             <div class="form-group">
                                 <h5>Mixing Time</h5>

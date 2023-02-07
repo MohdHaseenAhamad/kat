@@ -105,7 +105,7 @@
 
                             <div class="form-group">
                                 <h5>Discharge Time</h5>
-                                <input type="text" class="form-control" name="discharge_time" value="<?=isset($results) ? $results->discharge_time:''?>" placeholder="AUTO">
+                                <input type="text" class="form-control" name="discharge_time" value="<?=isset($results) ? $results->discharge_time: date(DATE_FORMAT)?>" placeholder="AUTO" readonly>
                             </div>
                             <div class="form-group">
                                 <h5>Flow</h5>

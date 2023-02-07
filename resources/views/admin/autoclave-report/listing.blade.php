@@ -63,6 +63,11 @@
                                     <th>Stream </th>
                                     <th>Transfer To</th>
                                     <th>Time Stream Transfer</th>
+                                    <?php if (session()->has('superadmin')) {
+                                    ?>
+                                    <th><?=CREATE_DATE?></th>
+                                    <th><?=MODIFIED_DATE?></th>
+                                    <?php }?>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -90,6 +95,11 @@
                                     <td><?=isset($value->stream_transfer) ?$value->stream_transfer :''?></td>
                                     <td><?=isset($value->transfer_to) ?$value->transfer_to :''?></td>
                                     <td><?=isset($value->time_stream_transfer) ?$value->time_stream_transfer :''?></td>
+                                    <?php if (session()->has('superadmin')) {
+                                    ?>
+                                    <td><?=isset($value->created_at) ? $value->created_at : ''?></td>
+                                    <td><?=isset($value->updated_at) ? $value->updated_at : ''?></td>
+                                    <?php } ?>
                                     <td>
                                         <div class="btn-group">
                                             <a  href="{{url('/admin/autoclave-report/edit/'.$value->id)}}"  class="btn btn-info btn-sm">Edit</a>&nbsp&nbsp;

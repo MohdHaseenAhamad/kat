@@ -61,6 +61,12 @@
                                     <th>UnCutt Blocks</th>
                                     <th>Total Reject Block</th>
                                     <th>other</th>
+                                    <?php if (session()->has('superadmin')) {
+                                    ?>
+                                    <th><?=CREATE_DATE?></th>
+                                    <th><?=MODIFIED_DATE?></th>
+                                    <?php }?>
+
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -91,6 +97,12 @@
                                     <td><?=isset($value->uncutt_blocks) ?$value->uncutt_blocks: ''?></td>
                                     <td><?=isset($value->total_reject_block) ?$value->total_reject_block: ''?></td>
                                     <td><?=isset($value->other) ? $value->other : ''?></td>
+                                    <?php if (session()->has('superadmin')) {
+                                    ?>
+                                    <td><?=isset($value->created_at) ? $value->created_at : ''?></td>
+                                    <td><?=isset($value->updated_at) ? $value->updated_at : ''?></td>
+                                    <?php } ?>
+
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{url('/admin/cutting-report/edit/'.$value->id)}}"
