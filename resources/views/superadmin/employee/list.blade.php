@@ -102,8 +102,22 @@
                          ?>
                         <!-- /.card-body -->
                     </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="d-flex justify-content-start">
+                                <b>({!! $results->firstItem().' to '.$results->lastItem()." Total Record ".$results->total()!!})</b>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="d-flex justify-content-end">
+                                {!! $results->links() !!}
+                            </div>
+                        </div>
+                    </div>
                     <!-- /.card -->
                 </div>
+
             </div>
 
         </div>

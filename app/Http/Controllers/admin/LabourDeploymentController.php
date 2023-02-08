@@ -8,7 +8,7 @@ use DB;
 class LabourDeploymentController extends Controller
 {
     public function index() {
-        $results=DB::table('labour')->get();
+        $results=DB::table('labour')->paginate(SHOW_RECORD);
         return view('admin/labour-deployment/listing')->with('results',$results);
     }
 

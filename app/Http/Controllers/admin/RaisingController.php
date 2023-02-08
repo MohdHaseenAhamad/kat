@@ -11,7 +11,7 @@ class RaisingController extends Controller
         $results=DB::table('raising')
             ->leftJoin('employee','employee.id','=','raising.operater_id')
             ->select('raising.*','employee.name as employee_name')
-            ->get();
+            ->paginate(SHOW_RECORD);
         return view('admin/raising-report/listing')->with('results',$results);
     }
 

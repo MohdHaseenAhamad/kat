@@ -12,7 +12,7 @@ class BatchingController extends Controller
         $results=DB::table('batching')
             ->leftJoin('employee','employee.id','=','batching.operater_id')
             ->select('batching.*','employee.name as employee_name')
-            ->get();
+            ->paginate(SHOW_RECORD);
         return view('admin/batching-report/listing')->with('results',$results);
     }
 

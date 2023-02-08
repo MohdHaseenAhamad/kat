@@ -12,7 +12,7 @@ class DepartmentController extends Controller
     public $slug = "department";
     public function index()
     {
-        $results = DB::table('department')->get();
+        $results = DB::table('department')->paginate(SHOW_RECORD);
 
         return view('superadmin/department/list')->with('results',$results);
     }

@@ -61,17 +61,18 @@
                                 <?php
                                 if(isset($results))
                                 {
-                                $counter=$results->firstItem();
+
+                                $counter = $results->firstItem();
                                 foreach ($results as $value)
                                 {
 
                                 ?>
                                 <tr>
                                     <td><?=$counter?>.</td>
-                                    <td><?=isset($value->employee_name) ?$value->employee_name:''?></td>
-                                    <td><?=isset($value->status) ?STATUS[$value->status]:''?></td>
-                                    <td><?=isset($value->remark) ?$value->remark:''?></td>
-                                    <td><?=isset($value->work_description) ?$value->work_description:''?></td>
+                                    <td><?=isset($value->employee_name) ? $value->employee_name : ''?></td>
+                                    <td><?=isset($value->status) ? STATUS[$value->status] : ''?></td>
+                                    <td><?=isset($value->remark) ? $value->remark : ''?></td>
+                                    <td><?=isset($value->work_description) ? $value->work_description : ''?></td>
 
                                     <?php if (session()->has('superadmin')) {
                                     ?>
@@ -83,7 +84,7 @@
                                         <div class="btn-group">
                                             <a href="{{url('/admin/logbook-report/edit/'.$value->id)}}"
                                                class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;<a
-                                                href="javascript:void(0)" onclick="return deleteIt(this,<?=$i?>)"
+                                                href="javascript:void(0)" onclick="return deleteIt(this,<?=$counter?>)"
                                                 data-href="{{url('/admin/logbook-report/delete/'.$value->id)}}"
                                                 class="btn btn-sm btn-danger">Delete</a></div>
                                     </td>
@@ -102,8 +103,18 @@
                         </div>
 
                     </div>
-                    <div class="d-flex justify-content-end">
-                        {!! $results->links() !!}
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="d-flex justify-content-start">
+                                <b>({!! $results->firstItem().' to '.$results->lastItem()." Total Record ".$results->total()!!})</b>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="d-flex justify-content-end">
+                                {!! $results->links() !!}
+                            </div>
+                        </div>
                     </div>
                     <!-- /.card -->
                 </div>

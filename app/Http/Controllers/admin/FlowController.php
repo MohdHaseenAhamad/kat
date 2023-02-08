@@ -12,7 +12,7 @@ class FlowController extends Controller
         $results=DB::table('flow')
             ->leftJoin('employee','employee.id','=','flow.operater_id')
             ->select('flow.*','employee.name as employee_name')
-            ->get();
+            ->paginate(SHOW_RECORD);
         return view('admin/flow-report/listing')->with('results',$results);
     }
 

@@ -12,7 +12,7 @@ class RfController extends Controller
         $results=DB::table('rf_feding')
             ->leftJoin('employee','employee.id','=','rf_feding.store_incharge_id')
             ->select('rf_feding.*','employee.name as employee_name')
-            ->get();
+            ->paginate(SHOW_RECORD);
         return view('admin/rf-feding/listing')->with('results',$results);
     }
 

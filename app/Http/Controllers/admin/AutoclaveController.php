@@ -12,7 +12,7 @@ class AutoclaveController extends Controller
         $results=DB::table('autoclave')
             ->leftJoin('employee','employee.id','=','autoclave.operater_id')
             ->select('autoclave.*','employee.name as employee_name')
-                ->get();
+                ->paginate(SHOW_RECORD);
         return view('admin/autoclave-report/listing')->with('results',$results);
     }
 

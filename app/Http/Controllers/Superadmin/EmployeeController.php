@@ -12,7 +12,7 @@ class EmployeeController extends Controller
         $results=DB::table('employee')
             ->leftJoin('department','department.id','=','employee.dep_id')
             ->select('employee.*','department.name as dep_name')
-            ->get();
+            ->paginate(SHOW_RECORD);
         return view('superadmin/employee/list')->with('results',$results);
     }
     public function add()

@@ -11,7 +11,7 @@ class CuttingControllter extends Controller {
         $results = DB::table('cutting')
             ->leftJoin('employee','employee.id','=','cutting.operater_id')
             ->select('cutting.*','employee.name as employee_name')
-            ->get();
+            ->paginate(SHOW_RECORD);
         return view('admin/cutting-report/listing')->with('results', $results);
     }
 
