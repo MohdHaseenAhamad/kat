@@ -11,7 +11,7 @@ class LogbookController extends Controller
         $results = DB::table('logbook')
             ->leftJoin('employee','employee.id','=','logbook.staff_deployed_id')
             ->select('logbook.*','employee.name as employee_name')
-            ->get();
+            ->paginate(SHOW_RECORD);
         return view('admin/logbook-report/listing')->with('results',$results);
     }
 

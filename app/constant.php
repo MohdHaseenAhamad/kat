@@ -20,5 +20,6 @@ define('STATUS',array('1'=>'Finish','2'=>'Working'));
 define('CONTACT_NUMBER','7309589697');
 define('CREATE_DATE','Created Date');
 define('MODIFIED_DATE','Modified Date');
+define('SHOW_RECORD',5);
 
 

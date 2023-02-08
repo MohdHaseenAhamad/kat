@@ -59,14 +59,15 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                $i = 1;
                                 if(isset($results))
                                 {
+                                $counter=$results->firstItem();
                                 foreach ($results as $value)
                                 {
+
                                 ?>
                                 <tr>
-                                    <td><?=$i?>.</td>
+                                    <td><?=$counter?>.</td>
                                     <td><?=isset($value->employee_name) ?$value->employee_name:''?></td>
                                     <td><?=isset($value->status) ?STATUS[$value->status]:''?></td>
                                     <td><?=isset($value->remark) ?$value->remark:''?></td>
@@ -88,7 +89,7 @@
                                     </td>
                                 </tr>
                                 <?php
-                                $i++;
+                                $counter++;
                                 }
                                 }
 
@@ -97,8 +98,12 @@
 
                                 </tbody>
                             </table>
+
                         </div>
-                        <!-- /.card-body -->
+
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        {!! $results->links() !!}
                     </div>
                     <!-- /.card -->
                 </div>
