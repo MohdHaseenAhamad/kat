@@ -1,0 +1,14 @@
+<?php
+require_once('vendor/autoload.php');
+
+$client = new \GuzzleHttp\Client();
+
+$response = $client->request('POST', 'https://app-server.wati.io/api/v1/sendTemplateMessage?whatsappNumber=917309589697', [
+  'body' => '{"broadcast_name":"Untitled_090220231621","template_name":"login_otp"}',
+  'headers' => [
+    'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNDE5YTAxYS1hODcyLTQ2NGQtODZjZi0wMTJmNGUzN2FmYjMiLCJ1bmlxdWVfbmFtZSI6ImhhcHB5aGFzc2VuMDc4NkBnbWFpbC5jb20iLCJuYW1laWQiOiJoYXBweWhhc3NlbjA3ODZAZ21haWwuY29tIiwiZW1haWwiOiJoYXBweWhhc3NlbjA3ODZAZ21haWwuY29tIiwiYXV0aF90aW1lIjoiMDIvMDkvMjAyMyAxMDozOToxMCIsImRiX25hbWUiOiJ3YXRpX2FwcF90cmlhbCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlRSSUFMIiwiZXhwIjoxNjc2NTkyMDAwLCJpc3MiOiJDbGFyZV9BSSIsImF1ZCI6IkNsYXJlX0FJIn0.mhXaMcIqqXeqe8nsm9Ygi-kNhRhK5Y9iWe-vVlEa5uI',
+    'content-type' => 'text/json',
+  ],
+]);
+
+echo $response->getBody();

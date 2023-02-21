@@ -111,7 +111,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="d-flex justify-content-start">
-                                <b>({!! $results->firstItem().' to '.$results->lastItem()." Total Record ".$results->total()!!})</b>
+                                <b>({!! $results->firstItem().' to '.$results->lastItem()." Total Records ".$results->total()!!})</b>
                             </div>
                         </div>
 
